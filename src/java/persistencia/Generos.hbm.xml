@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-01-2018 02:48:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="persistencia.Generos" table="generos" catalog="cinemas" optimistic-lock="version">
+        <id name="idGenero" type="int">
+            <column name="id_genero" />
+            <generator class="assigned" />
+        </id>
+        <property name="tipoGenero" type="string">
+            <column name="tipo_genero" length="150" not-null="true" />
+        </property>
+        <set name="peliculases" table="peliculas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_genero" not-null="true" />
+            </key>
+            <one-to-many class="persistencia.Peliculas" />
+        </set>
+    </class>
+</hibernate-mapping>
