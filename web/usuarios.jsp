@@ -95,8 +95,8 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Tipo de Usuario:</label>
-                                <div class="col-sm-8">
+                                <label class="col-sm-3 col-form-label">Tipo de Usuario:</label>
+                                <div class="col-sm-9">
                                     <select class="form-control">
                                         <option value="">Administrador</option>
                                         <option value="">Cajero</option>
