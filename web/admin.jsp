@@ -46,7 +46,7 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <a type="submit" href="index.jsp" class="btn btn-primary">Ingresar</a>
+                                    <a type="submit" href="system" class="btn btn-primary">Ingresar</a>
                                 </div>
 
                         </form>
