@@ -16,12 +16,12 @@
     <link href="css/simple-sidebar.css" rel="stylesheet">
 </head>
 <body style="background-color: #E2fff0">
-    <%@include file="menu.html" %>
+    <%@include file="./ext/menu.html" %>
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <!--Nombre de la empresa-->
-                <%@include file="logo_nombre.html" %>
+                <%@include file="./ext/logo_nombre.html" %>
                 <br><br>
                 <div class="row" style="padding-right: 25px; margin-right: 25px">
                   <div class="col-md-12">
