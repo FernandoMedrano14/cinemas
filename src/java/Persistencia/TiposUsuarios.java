@@ -1,5 +1,5 @@
-package persistencia;
-// Generated 11-01-2018 02:48:26 PM by Hibernate Tools 4.3.1
+package Persistencia;
+// Generated 11-12-2018 11:20:36 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,29 +11,23 @@ import java.util.Set;
 public class TiposUsuarios  implements java.io.Serializable {
 
 
-     private int idTipoUsuario;
+     private Integer idTipoUsuario;
      private String tipo;
      private Set usuarioses = new HashSet(0);
 
     public TiposUsuarios() {
     }
 
-	
-    public TiposUsuarios(int idTipoUsuario, String tipo) {
-        this.idTipoUsuario = idTipoUsuario;
-        this.tipo = tipo;
-    }
-    public TiposUsuarios(int idTipoUsuario, String tipo, Set usuarioses) {
-       this.idTipoUsuario = idTipoUsuario;
+    public TiposUsuarios(String tipo, Set usuarioses) {
        this.tipo = tipo;
        this.usuarioses = usuarioses;
     }
    
-    public int getIdTipoUsuario() {
+    public Integer getIdTipoUsuario() {
         return this.idTipoUsuario;
     }
     
-    public void setIdTipoUsuario(int idTipoUsuario) {
+    public void setIdTipoUsuario(Integer idTipoUsuario) {
         this.idTipoUsuario = idTipoUsuario;
     }
     public String getTipo() {
