@@ -1,0 +1,43 @@
+<div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" class="align-middle">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="empresas.jsp">Empresas</a>
+                </li>
+                <li>
+                    <a href="usuarios.jsp">Usuarios</a>
+                </li>
+                <li>
+                    <a href="sucursales.jsp">Sucursales</a>
+                </li>
+                <li>
+                    <a href="salas.jsp">Salas</a>
+                </li>
+                <li>
+                    <a href="horarios.jsp">Horarios</a>
+                </li>
+                <li>
+                    <a href="clasificaciones.jsp">Clasificaciones</a>
+                </li>
+                <li>
+                    <a href="generos.jsp">G&eacute;neros</a>
+                </li>
+                <li>
+                    <a href="peliculas.jsp">Peliculas</a>
+                </li>
+                <li>
+                    <a href="precios.jsp">Precios</a>
+                </li>
+                <li>
+                    <a href="funciones.jsp">Funciones</a>
+                </li>
+                <li>
+                    <a href="tickets.jsp">Vender Tickets</a>
+                </li>
+                <li>
+                    <a href="#">Reporter&iacute;a</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
