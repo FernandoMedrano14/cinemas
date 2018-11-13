@@ -13,6 +13,26 @@ body {
 	white; height: 96%;
 }
 
+.titulo-pagina{
+	
+	background-color: #2A53FF; 
+	margin-right: -1.5%
+}
+
+.texto-titulo{
+	text-decoration: none;
+}
+
 .titulo-contenido{
 	padding-top: 5%;
+	font-family: 'Lobster', cursive;
+}
+
+.div-izquierdo{
+	background-color: black;
+}
+
+.menu-izquierdo{
+	margin-right: -25px; 
+	padding-top: 50%
 }
