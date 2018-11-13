@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-13-2018 10:57:42 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="cinemas" name="Persistencia.Horarios" optimistic-lock="version" table="horarios">
+    <id name="idHorario" type="java.lang.Integer">
+      <column name="id_horario"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="Persistencia.Salas" fetch="select" name="salas">
+      <column name="id_sala" not-null="true"/>
+    </many-to-one>
+    <property name="horario" type="string">
+      <column length="50" name="horario" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="funcioneses" table="funciones">
+      <key>
+        <column name="id_horario" not-null="true"/>
+      </key>
+      <one-to-many class="Persistencia.Funciones"/>
+    </set>
+  </class>
+</hibernate-mapping>

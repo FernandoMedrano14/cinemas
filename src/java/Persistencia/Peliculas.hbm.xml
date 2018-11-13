@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-13-2018 10:57:42 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="cinemas" name="Persistencia.Peliculas" optimistic-lock="version" table="peliculas">
+    <id name="idPelicula" type="java.lang.Integer">
+      <column name="id_pelicula"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="Persistencia.Empresas" fetch="select" name="empresas">
+      <column name="id_empresa" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="Persistencia.Generos" fetch="select" name="generos">
+      <column name="id_genero" not-null="true"/>
+    </many-to-one>
+    <property name="titulo" type="string">
+      <column length="150" name="titulo"/>
+    </property>
+    <property name="duracion" type="string">
+      <column length="10" name="duracion"/>
+    </property>
+    <property name="actores" type="string">
+      <column length="150" name="actores"/>
+    </property>
+    <property name="directores" type="string">
+      <column length="150" name="directores"/>
+    </property>
+    <property name="sinopsis" type="string">
+      <column length="500" name="sinopsis"/>
+    </property>
+    <property name="imagen" type="string">
+      <column length="500" name="imagen"/>
+    </property>
+    <property name="estado" type="string">
+      <column length="25" name="estado" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="funcioneses" table="funciones">
+      <key>
+        <column name="id_pelicula" not-null="true"/>
+      </key>
+      <one-to-many class="Persistencia.Funciones"/>
+    </set>
+  </class>
+</hibernate-mapping>

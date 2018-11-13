@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-13-2018 10:57:42 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="cinemas" name="Persistencia.Ventas" optimistic-lock="version" table="ventas">
+    <id name="idVenta" type="java.lang.Integer">
+      <column name="id_venta"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="Persistencia.Funciones" fetch="select" name="funciones">
+      <column name="id_funcion" not-null="true"/>
+    </many-to-one>
+    <property name="fechaVenta" type="string">
+      <column length="10" name="fecha_venta"/>
+    </property>
+    <property name="nombreCliente" type="string">
+      <column length="100" name="nombre_cliente"/>
+    </property>
+    <property name="cantidad" type="java.lang.Integer">
+      <column name="cantidad"/>
+    </property>
+    <property name="dui" type="string">
+      <column length="10" name="dui"/>
+    </property>
+    <property name="total" type="java.lang.Double">
+      <column name="total" precision="9"/>
+    </property>
+    <property name="estado" type="string">
+      <column length="25" name="estado"/>
+    </property>
+  </class>
+</hibernate-mapping>
