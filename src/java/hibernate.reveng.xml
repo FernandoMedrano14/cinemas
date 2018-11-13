@@ -41,15 +41,15 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="cinemas"/>
-  <table-filter match-name="generos"/>
-  <table-filter match-name="sucursales"/>
   <table-filter match-name="usuarios"/>
+  <table-filter match-name="salas"/>
+  <table-filter match-name="generos"/>
+  <table-filter match-name="empresas"/>
   <table-filter match-name="precios"/>
-  <table-filter match-name="peliculas"/>
   <table-filter match-name="tipos_usuarios"/>
   <table-filter match-name="horarios"/>
-  <table-filter match-name="salas"/>
-  <table-filter match-name="ventas"/>
+  <table-filter match-name="peliculas"/>
+  <table-filter match-name="sucursales"/>
   <table-filter match-name="funciones"/>
-  <table-filter match-name="empresas"/>
+  <table-filter match-name="ventas"/>
 </hibernate-reverse-engineering>

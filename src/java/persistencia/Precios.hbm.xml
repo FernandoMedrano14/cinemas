@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-nov-2018 9:21:38 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="persistencia.Precios" table="precios" catalog="cinemas" optimistic-lock="version">
+        <id name="idPrecio" type="java.lang.Integer">
+            <column name="id_precio" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sucursales" class="persistencia.Sucursales" fetch="select">
+            <column name="id_sucursal" not-null="true" />
+        </many-to-one>
+        <property name="precio" type="java.lang.Double">
+            <column name="precio" precision="9" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="300" />
+        </property>
+        <set name="funcioneses" table="funciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_precio" not-null="true" />
+            </key>
+            <one-to-many class="persistencia.Funciones" />
+        </set>
+    </class>
+</hibernate-mapping>
