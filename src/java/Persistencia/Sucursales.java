@@ -1,5 +1,5 @@
 package Persistencia;
-// Generated 11-13-2018 10:57:41 AM by Hibernate Tools 4.3.1
+// Generated 11-14-2018 10:47:01 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -16,6 +16,8 @@ public class Sucursales  implements java.io.Serializable {
      private String nombreSucursal;
      private String direccionSucursal;
      private String telefono;
+     private String latitud;
+     private String longitud;
      private Set salases = new HashSet(0);
      private Set precioses = new HashSet(0);
 
@@ -26,11 +28,13 @@ public class Sucursales  implements java.io.Serializable {
     public Sucursales(Empresas empresas) {
         this.empresas = empresas;
     }
-    public Sucursales(Empresas empresas, String nombreSucursal, String direccionSucursal, String telefono, Set salases, Set precioses) {
+    public Sucursales(Empresas empresas, String nombreSucursal, String direccionSucursal, String telefono, String latitud, String longitud, Set salases, Set precioses) {
        this.empresas = empresas;
        this.nombreSucursal = nombreSucursal;
        this.direccionSucursal = direccionSucursal;
        this.telefono = telefono;
+       this.latitud = latitud;
+       this.longitud = longitud;
        this.salases = salases;
        this.precioses = precioses;
     }
@@ -69,6 +73,20 @@ public class Sucursales  implements java.io.Serializable {
     
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+    public String getLatitud() {
+        return this.latitud;
+    }
+    
+    public void setLatitud(String latitud) {
+        this.latitud = latitud;
+    }
+    public String getLongitud() {
+        return this.longitud;
+    }
+    
+    public void setLongitud(String longitud) {
+        this.longitud = longitud;
     }
     public Set getSalases() {
         return this.salases;
