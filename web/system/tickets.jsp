@@ -115,7 +115,12 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Precio:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Precio de la función" disabled="false">
+                                    <div class="input-group">
+                                        <span class="input-group-append input-group-addon">
+                                            <span class="input-group-text" style="font-size: 15px;"><b>$</b></span>
+                                        </span>
+                                        <input type="text" class="form-control" placeholder="Precio por Entrada" disabled="false">
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
