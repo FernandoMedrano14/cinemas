@@ -5,6 +5,8 @@
  */
 package Actionform;
 
+import Persistencia.Salas;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -17,59 +19,68 @@ import org.apache.struts.action.ActionMessage;
  */
 public class SalasActionForm extends org.apache.struts.action.ActionForm {
     
-    private String name;
+    private Integer idSala;
+    private Integer idSucursal;
+    private Integer numeroSala;
+    private String tipoSala;
+    private String action;
+    private String error;
+    private List<Salas> listaSalas;
+
+    public Integer getIdSala() {
+        return idSala;
+    }
+
+    public void setIdSala(Integer idSala) {
+        this.idSala = idSala;
+    }
+
+    public Integer getIdSucursal() {
+        return idSucursal;
+    }
+
+    public void setIdSucursal(Integer idSucursal) {
+        this.idSucursal = idSucursal;
+    }
+
+    public Integer getNumeroSala() {
+        return numeroSala;
+    }
+
+    public void setNumeroSala(Integer numeroSala) {
+        this.numeroSala = numeroSala;
+    }
+
+    public String getTipoSala() {
+        return tipoSala;
+    }
+
+    public void setTipoSala(String tipoSala) {
+        this.tipoSala = tipoSala;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public List<Salas> getListaSalas() {
+        return listaSalas;
+    }
+
+    public void setListaSalas(List<Salas> listaSalas) {
+        this.listaSalas = listaSalas;
+    }
     
-    private int number;
-
-    /**
-     * @return
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param string
-     */
-    public void setName(String string) {
-        name = string;
-    }
-
-    /**
-     * @return
-     */
-    public int getNumber() {
-        return number;
-    }
-
-    /**
-     * @param i
-     */
-    public void setNumber(int i) {
-        number = i;
-    }
-
-    /**
-     *
-     */
-    public SalasActionForm() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-    /**
-     * This is the action called from the Struts framework.
-     *
-     * @param mapping The ActionMapping used to select this instance.
-     * @param request The HTTP Request we are processing.
-     * @return
-     */
-    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-        ActionErrors errors = new ActionErrors();
-        if (getName() == null || getName().length() < 1) {
-            errors.add("name", new ActionMessage("error.name.required"));
-            // TODO: add 'error.name.required' key to your resources
-        }
-        return errors;
-    }
 }

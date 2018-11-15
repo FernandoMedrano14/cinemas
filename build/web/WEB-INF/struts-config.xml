@@ -32,6 +32,7 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/" name="VentasActionForm" path="/empresas" scope="session" type="Action.ActionEmpresas"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     

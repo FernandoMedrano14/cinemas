@@ -5,6 +5,8 @@
  */
 package Actionform;
 
+import Persistencia.Precios;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -17,59 +19,68 @@ import org.apache.struts.action.ActionMessage;
  */
 public class PreciosActionForm extends org.apache.struts.action.ActionForm {
     
-    private String name;
-    
-    private int number;
+    private Integer idPrecio;
+    private Integer idSucursal;
+    private Double precio;
+    private String descripcion;
+    private String action;
+    private String error;
+    private List<Precios> listaPrecios; 
 
-    /**
-     * @return
-     */
-    public String getName() {
-        return name;
+    public Integer getIdPrecio() {
+        return idPrecio;
     }
 
-    /**
-     * @param string
-     */
-    public void setName(String string) {
-        name = string;
+    public void setIdPrecio(Integer idPrecio) {
+        this.idPrecio = idPrecio;
     }
 
-    /**
-     * @return
-     */
-    public int getNumber() {
-        return number;
+    public Integer getIdSucursal() {
+        return idSucursal;
     }
 
-    /**
-     * @param i
-     */
-    public void setNumber(int i) {
-        number = i;
+    public void setIdSucursal(Integer idSucursal) {
+        this.idSucursal = idSucursal;
     }
 
-    /**
-     *
-     */
-    public PreciosActionForm() {
-        super();
-        // TODO Auto-generated constructor stub
+    public Double getPrecio() {
+        return precio;
     }
 
-    /**
-     * This is the action called from the Struts framework.
-     *
-     * @param mapping The ActionMapping used to select this instance.
-     * @param request The HTTP Request we are processing.
-     * @return
-     */
-    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-        ActionErrors errors = new ActionErrors();
-        if (getName() == null || getName().length() < 1) {
-            errors.add("name", new ActionMessage("error.name.required"));
-            // TODO: add 'error.name.required' key to your resources
-        }
-        return errors;
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public List<Precios> getListaPrecios() {
+        return listaPrecios;
+    }
+
+    public void setListaPrecios(List<Precios> listaPrecios) {
+        this.listaPrecios = listaPrecios;
+    }
+
 }

@@ -5,6 +5,8 @@
  */
 package Actionform;
 
+import Persistencia.TiposUsuarios;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -17,59 +19,50 @@ import org.apache.struts.action.ActionMessage;
  */
 public class TiposUsuariosActionForm extends org.apache.struts.action.ActionForm {
     
-    private String name;
+    private Integer idTipoUsuario;
+    private String tipo;
+    private String action;
+    private String error;
+    private List<TiposUsuarios> listaTipoUsuario;
+
+    public Integer getIdTipoUsuario() {
+        return idTipoUsuario;
+    }
+
+    public void setIdTipoUsuario(Integer idTipoUsuario) {
+        this.idTipoUsuario = idTipoUsuario;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public List<TiposUsuarios> getListaTipoUsuario() {
+        return listaTipoUsuario;
+    }
+
+    public void setListaTipoUsuario(List<TiposUsuarios> listaTipoUsuario) {
+        this.listaTipoUsuario = listaTipoUsuario;
+    }
     
-    private int number;
-
-    /**
-     * @return
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param string
-     */
-    public void setName(String string) {
-        name = string;
-    }
-
-    /**
-     * @return
-     */
-    public int getNumber() {
-        return number;
-    }
-
-    /**
-     * @param i
-     */
-    public void setNumber(int i) {
-        number = i;
-    }
-
-    /**
-     *
-     */
-    public TiposUsuariosActionForm() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-    /**
-     * This is the action called from the Struts framework.
-     *
-     * @param mapping The ActionMapping used to select this instance.
-     * @param request The HTTP Request we are processing.
-     * @return
-     */
-    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-        ActionErrors errors = new ActionErrors();
-        if (getName() == null || getName().length() < 1) {
-            errors.add("name", new ActionMessage("error.name.required"));
-            // TODO: add 'error.name.required' key to your resources
-        }
-        return errors;
-    }
 }

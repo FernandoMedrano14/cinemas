@@ -5,6 +5,8 @@
  */
 package Actionform;
 
+import Persistencia.Sucursales;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -17,59 +19,77 @@ import org.apache.struts.action.ActionMessage;
  */
 public class SucursalesActionForm extends org.apache.struts.action.ActionForm {
     
-    private String name;
+    private Integer idSucursal;
+    private Integer idEmpresa;
+    private String nombreSucursal;
+    private String direccionSucursal;
+    private String telelfono;
+    private String action;
+    private String error;
+    private List<Sucursales> listaSucursal;
+
+    public Integer getIdSucursal() {
+        return idSucursal;
+    }
+
+    public void setIdSucursal(Integer idSucursal) {
+        this.idSucursal = idSucursal;
+    }
+
+    public Integer getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
+
+    public String getNombreSucursal() {
+        return nombreSucursal;
+    }
+
+    public void setNombreSucursal(String nombreSucursal) {
+        this.nombreSucursal = nombreSucursal;
+    }
+
+    public String getDireccionSucursal() {
+        return direccionSucursal;
+    }
+
+    public void setDireccionSucursal(String direccionSucursal) {
+        this.direccionSucursal = direccionSucursal;
+    }
+
+    public String getTelelfono() {
+        return telelfono;
+    }
+
+    public void setTelelfono(String telelfono) {
+        this.telelfono = telelfono;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public List<Sucursales> getListaSucursal() {
+        return listaSucursal;
+    }
+
+    public void setListaSucursal(List<Sucursales> listaSucursal) {
+        this.listaSucursal = listaSucursal;
+    }
     
-    private int number;
-
-    /**
-     * @return
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param string
-     */
-    public void setName(String string) {
-        name = string;
-    }
-
-    /**
-     * @return
-     */
-    public int getNumber() {
-        return number;
-    }
-
-    /**
-     * @param i
-     */
-    public void setNumber(int i) {
-        number = i;
-    }
-
-    /**
-     *
-     */
-    public SucursalesActionForm() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-    /**
-     * This is the action called from the Struts framework.
-     *
-     * @param mapping The ActionMapping used to select this instance.
-     * @param request The HTTP Request we are processing.
-     * @return
-     */
-    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-        ActionErrors errors = new ActionErrors();
-        if (getName() == null || getName().length() < 1) {
-            errors.add("name", new ActionMessage("error.name.required"));
-            // TODO: add 'error.name.required' key to your resources
-        }
-        return errors;
-    }
 }
