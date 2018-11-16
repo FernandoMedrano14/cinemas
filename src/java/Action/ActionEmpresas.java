@@ -43,7 +43,7 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
         String direccion = formEmp.getDireccion();
         String telefono = formEmp.getTelefono();
         String nit = formEmp.getNit();
-        String numeroRegistro = formEmp.getNumeroRegisto();
+        String numeroRegistro = formEmp.getNumeroRegistro();
         String giro = formEmp.getGiro();
         String action = formEmp.getAction();
         
@@ -105,7 +105,7 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
              formEmp.setDireccion(direccion);
              formEmp.setTelefono(telefono);
              formEmp.setNit(nit);
-             formEmp.setNumeroRegisto(numeroRegistro);
+             formEmp.setNumeroRegistro(numeroRegistro);
              formEmp.setGiro(giro);
              List<Empresas> listaEmpresa = emp.consultartodo();
              formEmp.setListaEmpresa(listaEmpresa);
