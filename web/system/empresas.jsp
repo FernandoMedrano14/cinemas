@@ -56,42 +56,42 @@
                     </div>
                     <!--Formulario para ingresar y consultar datos-->
                     <div class="col-md-4 border border-dark rounded" style="background-color: white">
-                        <form>
+                        <html:form action="/system/empresa">
                             </br>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Nombre:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese nombre de la empresa">
+                                    <html:text styleClass="form-control" property="nombre"></html:text>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Dirección:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese el domicilio de la empresa">
+                                    <html:text styleClass="form-control" property="direccion"></html:text>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Telefono:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese telefono de la empresa">
+                                    <html:text styleClass="form-control" property="telefono"></html:text>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">NIT:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese el NIT de la empresa">
+                                    <html:text styleClass="form-control" property="nit"></html:text>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Registro:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese registro de la empresa">
+                                    <html:text styleClass="form-control" property="numeroRegistro"></html:text>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Giro:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese el giro">
+                                   <html:text styleClass="form-control" property="giro"></html:text>
                                 </div>
                             </div>
                             <div class="text-center">
@@ -101,7 +101,7 @@
                                 <button type="submit" class="btn btn-secondary">Modificar</button>
                                 <button type="submit" class="btn btn-danger">Eliminar</button><br></br>
                             </div>
-                        </form>
+                        </html:form>
                     </div>
                 </div>        
             </div>
