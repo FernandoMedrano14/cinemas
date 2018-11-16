@@ -22,12 +22,12 @@ import org.apache.struts.action.ActionMapping;
 public class ActionEmpresas extends org.apache.struts.action.Action {
 
     
-    private static final String CONFIRMACION = "confirmacion";
-    private static final String ERROR = "error";
-    private static final String CONFIRMARID = "consultarID";
+    private static final String CONFIRMACION = "confirmarempresa";
+    private static final String ERROR = "errorempresa";
+    private static final String CONFIRMARID = "consultaridempresa";
     private static final String GUARDAR = "guardar";
     private static final String ELIMINAR = "eliminar";
-    private static final String CONSULTAR = "consultarTodo";
+    private static final String CONSULTAR = "consultarempresas";
     private static final String MODIFICAR = "modificar";
     private static final String MOSTRAR = "confirmacion";
     
@@ -47,8 +47,8 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
         String giro = formEmp.getGiro();
         String action = formEmp.getAction();
         
-        if (action.equals("mostrarInicio")) {
-             formEmp.setError(ERROR);
+        if (action.equals("Iniciar")) {
+            System.out.println("Entro en el action empresas");
              List<Empresas> listaEmpresa = emp.consultartodo();
              formEmp.setListaEmpresa(listaEmpresa);
              return mapping.findForward(CONSULTAR);
