@@ -22,14 +22,14 @@ import org.apache.struts.action.ActionMapping;
 public class ActionEmpresas extends org.apache.struts.action.Action {
 
     
-    private static final String SUCCESS = "success";
-    private static final String Error = "error";
-    private static final String confirmarID = "consultarID";
-    private static final String guardar = "guardar";
-    private static final String eliminar = "eliminar";
-    private static final String consultar = "consultarTodo";
-    private static final String modificar = "modificar";
-    private static final String confirmacion = "confirmacion";
+    private static final String CONFIRMACION = "confirmacion";
+    private static final String ERROR = "error";
+    private static final String CONFIRMARID = "consultarID";
+    private static final String GUARDAR = "guardar";
+    private static final String ELIMINAR = "eliminar";
+    private static final String CONSULTAR = "consultarTodo";
+    private static final String MODIFICAR = "modificar";
+    private static final String MOSTRAR = "confirmacion";
     
     EmpresasMantenimiento emp = new EmpresasMantenimiento();
     
@@ -76,7 +76,7 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
             
             if (!advertencia.equals("")) {
                 formEmp.setError("<span style='color:red'> Complete los campos sin rellenar" + "<br>" + advertencia + "</span>");
-                return mapping.findForward(Error);
+                return mapping.findForward(ERROR);
   
             }
             
@@ -100,24 +100,24 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
              formEmp.setGiro(giro);
              List<Empresas> listaEmpresa = emp.consultartodo();
              formEmp.setListaEmpresa(listaEmpresa);
-             return mapping.findForward(consultar);
+             return mapping.findForward(CONSULTAR);
          } else {
            formEmp.setError("<div class='alert alert-danger'>Ocurrio un error al crear la Empresa.</div>");
-                return mapping.findForward(Error);  
+                return mapping.findForward(ERROR);  
          }
         }
         
-        if (action.equals(consultar)){
+        if (action.equals("consultar")){
             List<Empresas> listaEmpresa = emp.consultartodo();
             if(listaEmpresa == null){
                 formEmp.setError("<span style='color:red'>No se encontraron registros" + "<br></span>");
-                return mapping.findForward(Error);
+                return mapping.findForward(ERROR);
             } else {
                 formEmp.setListaEmpresa(listaEmpresa);
-                return mapping.findForward(confirmacion);
+                return mapping.findForward(MOSTRAR);
             }
         }
         
-        return mapping.findForward(SUCCESS);
+        return mapping.findForward(CONFIRMACION);
     }
 }

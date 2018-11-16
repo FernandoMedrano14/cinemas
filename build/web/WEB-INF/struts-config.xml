@@ -8,17 +8,29 @@
 <struts-config>
     <form-beans>
         <form-bean name="VentasActionForm" type="Actionform.VentasActionForm"/>
+        
         <form-bean name="UsuariosActionForm" type="Actionform.UsuariosActionForm"/>
+        
         <form-bean name="TiposUsuariosActionForm" type="Actionform.TiposUsuariosActionForm"/>
+        
         <form-bean name="SucursalesActionForm" type="Actionform.SucursalesActionForm"/>
+        
         <form-bean name="SalasActionForm" type="Actionform.SalasActionForm"/>
+        
         <form-bean name="PreciosActionForm" type="Actionform.PreciosActionForm"/>
+        
         <form-bean name="PeliculasActionForm" type="Actionform.PeliculasActionForm"/>
+        
         <form-bean name="HorariosActionForm" type="Actionform.HorariosActionForm"/>
+        
         <form-bean name="GenerosActionForm" type="Actionform.GenerosActionForm"/>
+        
         <form-bean name="FuncionesActionForm" type="Actionform.FuncionesActionForm"/>
+        
         <form-bean name="EmpresasActionForm" type="Actionform.EmpresasActionForm"/>
+        
         <form-bean name="ActionFormEmpresas" type="ActionForm.ActionFormEmpresas"/>
+        
         <form-bean name="ActionFormClasificaciones" type="ActionForm.ActionFormClasificaciones"/>
     
     </form-beans>
@@ -29,11 +41,22 @@
 
     <global-forwards>
         <forward name="welcome"  path="/Welcome.do"/>
+                            <!-- Forward Empresas -->
+        <forward name="error" path="/empresas.jsp"></forward>
+        <forward name="consultarID" path="/empresas.jsp"></forward>
+        <forward name="guardar" path="/empresas.jsp"></forward>
+        <forward name="eliminar" path="/empresas.jsp"></forward>
+        <forward name="consultarTodo" path="/empresas.jsp"></forward>
+        <forward name="modificar" path="/empresas.jsp"></forward>
+        <forward name="confirmacion" path="/empresas.jsp"></forward>
+        <forward name="confirmacion" path="/empresas.jsp"></forward>
+        
     </global-forwards>
 
     <action-mappings>
         <action input="/" name="VentasActionForm" path="/empresas" scope="session" type="Action.ActionEmpresas"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        <action name="EmpresasActionForm" path="/EmpresasMantenimiento" scope="request" type="action.ActionEmpresas"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
