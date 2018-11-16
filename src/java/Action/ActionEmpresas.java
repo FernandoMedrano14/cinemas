@@ -47,6 +47,13 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
         String giro = formEmp.getGiro();
         String action = formEmp.getAction();
         
+        if (action.equals("mostrarInicio")) {
+             formEmp.setError(ERROR);
+             List<Empresas> listaEmpresa = emp.consultartodo();
+             formEmp.setListaEmpresa(listaEmpresa);
+             return mapping.findForward(CONSULTAR);
+        } 
+        
         if (action.equals("Agregar")) {
             String advertencia = "";
 
