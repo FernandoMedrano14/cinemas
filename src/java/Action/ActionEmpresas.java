@@ -31,7 +31,7 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
     private static final String MODIFICAR = "modificar";
     private static final String MOSTRAR = "confirmacion";
     
-    EmpresasMantenimiento emp = new EmpresasMantenimiento();
+    
     
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -48,6 +48,7 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
         String action = formEmp.getAction();
         
         if (action.equals("Iniciar")) {
+            EmpresasMantenimiento emp = new EmpresasMantenimiento();
             List<Empresas> listaEmpresa = emp.consultartodo();
             formEmp.setListaEmpresa(listaEmpresa);
             return mapping.findForward(CONSULTAR);
@@ -56,7 +57,8 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
             System.out.println("problema al cargar la lista");
         }
         
-        if (action.equals("Agregar")) {
+        if (action.equals("Nueva")) {
+            System.out.println("Entra al accion");
             String advertencia = "";
 
             if (nombre == null || nombre.equals("")) {
@@ -89,6 +91,8 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
   
             }
             
+            EmpresasMantenimiento emp = new EmpresasMantenimiento();
+                        
             Empresas e = new Empresas();
             e.setIdEmpresa(idEmpresa);
             e.setNombre(nombre);
@@ -97,26 +101,28 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
             e.setNit(nit);
             e.setNumeroRegistro(numeroRegistro);
             e.setGiro(giro);
-            
-            
-         if(emp.guardarEmpresa(e)){
+            //-------------------
+            if(emp.guardarEmpresa(e)){
              formEmp.setError("<div class='alert alert-success'>Su Empresa ha sido registrada</div>");
-             formEmp.setNombre(nombre);
-             formEmp.setDireccion(direccion);
-             formEmp.setTelefono(telefono);
-             formEmp.setNit(nit);
-             formEmp.setNumeroRegistro(numeroRegistro);
-             formEmp.setGiro(giro);
+             formEmp.setNombre("");
+             formEmp.setDireccion("");
+             formEmp.setTelefono("");
+             formEmp.setNit("");
+             formEmp.setNumeroRegistro("");
+             formEmp.setGiro("");
              List<Empresas> listaEmpresa = emp.consultartodo();
              formEmp.setListaEmpresa(listaEmpresa);
-             return mapping.findForward(CONSULTAR);
+             return mapping.findForward(CONFIRMACION);
          } else {
            formEmp.setError("<div class='alert alert-danger'>Ocurrio un error al crear la Empresa.</div>");
-                return mapping.findForward(ERROR);  
+            System.out.println("Error al guardar usuario");     
+           return mapping.findForward(ERROR);
+               
          }
         }
         
         if (action.equals("consultar")){
+            EmpresasMantenimiento emp = new EmpresasMantenimiento();
             List<Empresas> listaEmpresa = emp.consultartodo();
             if(listaEmpresa == null){
                 formEmp.setError("<span style='color:red'>No se encontraron registros" + "<br></span>");
@@ -125,6 +131,72 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
                 formEmp.setListaEmpresa(listaEmpresa);
                 return mapping.findForward(MOSTRAR);
             }
+        }
+        
+        if (action.equals("modificar")) {
+            String advertencia = "";
+            Empresas e = new Empresas();
+            e.setIdEmpresa(idEmpresa);
+            e.setNombre(nombre);
+            e.setDireccion(direccion);
+            e.setTelefono(telefono);
+            e.setNit(nit);
+            e.setNumeroRegistro(numeroRegistro);
+            e.setGiro(giro);
+
+            EmpresasMantenimiento emp = new EmpresasMantenimiento();
+            
+            if (emp.modificarEmpresa(e)) {
+                formEmp.setIdEmpresa(e.getIdEmpresa());
+                formEmp.setNombre(e.getNombre());
+                formEmp.setDireccion(e.getDireccion());
+                formEmp.setTelefono(e.getTelefono());
+                formEmp.setNit(e.getNit());
+                formEmp.setNumeroRegistro(e.getNumeroRegistro());
+                formEmp.setGiro(e.getGiro());
+
+                advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> la empresa ha sido modificado.\n</div>");
+                request.setAttribute("advertencia", advertencia);
+                List<Empresas> listaEmpresa = emp.consultartodo();
+                formEmp.setListaEmpresa(listaEmpresa);
+            } else {
+                formEmp.setError("<div class='alert alert-danger'>Ocurrio un error al modificar la Empresa.</div>");
+                return mapping.findForward(ERROR);
+            }
+        }
+
+        if (action.equals("eliminar")) {
+            String advertencia = "";
+            int idRecibido = (Integer.parseInt(request.getParameter("id")));
+
+            EmpresasMantenimiento emp = new EmpresasMantenimiento();
+            
+            if (emp.eliminar(idRecibido) == 0) {
+                formEmp.setError("<div class='alert alert-danger'>Ocurrio un error al eliminar la Empresa.</div>");
+                return mapping.findForward(ERROR);
+            } else {
+                List<Empresas> listaEmpresa = emp.consultartodo();
+                formEmp.setListaEmpresa(listaEmpresa);
+                formEmp.setIdEmpresa(idRecibido);
+            }
+            return mapping.findForward(ELIMINAR);
+        }
+
+        if (action.equals("buscarId")) {
+            int idRecibido = (Integer.parseInt(request.getParameter("id")));
+            
+            EmpresasMantenimiento emp = new EmpresasMantenimiento();
+            
+            Empresas e = emp.consultarEmpresa(idRecibido);
+            formEmp.setIdEmpresa(e.getIdEmpresa());
+            formEmp.setNombre(e.getNombre());
+            formEmp.setDireccion(e.getDireccion());
+            formEmp.setTelefono(e.getTelefono());
+            formEmp.setNit(e.getNit());
+            formEmp.setNumeroRegistro(e.getNumeroRegistro());
+            formEmp.setGiro(e.getGiro());
+
+            return mapping.findForward(CONFIRMARID);
         }
         
         return mapping.findForward(CONFIRMACION);

@@ -6,6 +6,9 @@
 package Actionform;
 
 import Persistencia.Funciones;
+import Persistencia.Horarios;
+import Persistencia.Peliculas;
+import Persistencia.Precios;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,6 +30,9 @@ public class FuncionesActionForm extends org.apache.struts.action.ActionForm {
     private String action;
     private String error;
     private List<Funciones> listaFunciones;
+    private List<Horarios> listaHorario;
+    private List<Peliculas> listaPeliculas;
+    private List<Precios> listaPrecio;
 
     public Integer getIdFuncion() {
         return idFuncion;
@@ -90,6 +96,30 @@ public class FuncionesActionForm extends org.apache.struts.action.ActionForm {
 
     public void setListaFunciones(List<Funciones> listaFunciones) {
         this.listaFunciones = listaFunciones;
+    }
+
+    public List<Horarios> getListaHorario() {
+        return listaHorario;
+    }
+
+    public void setListaHorario(List<Horarios> listaHorario) {
+        this.listaHorario = listaHorario;
+    }
+
+    public List<Peliculas> getListaPeliculas() {
+        return listaPeliculas;
+    }
+
+    public void setListaPeliculas(List<Peliculas> listaPeliculas) {
+        this.listaPeliculas = listaPeliculas;
+    }
+
+    public List<Precios> getListaPrecio() {
+        return listaPrecio;
+    }
+
+    public void setListaPrecio(List<Precios> listaPrecio) {
+        this.listaPrecio = listaPrecio;
     }
     
 }

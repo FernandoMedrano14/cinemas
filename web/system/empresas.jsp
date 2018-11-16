@@ -97,7 +97,9 @@
                             <div class="text-center">
                                 </br>
                                 <!--botones para realizar acciones del formulario-->
-                                <button type="submit" class="btn btn-info">Nueva</button>
+                                
+                                <html:submit styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
+                                
                                 <button type="submit" class="btn btn-secondary">Modificar</button>
                                 <button type="submit" class="btn btn-danger">Eliminar</button><br></br>
                             </div>
