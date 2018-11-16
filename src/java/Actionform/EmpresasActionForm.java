@@ -24,7 +24,7 @@ public class EmpresasActionForm extends org.apache.struts.action.ActionForm {
     private String direccion;
     private String telefono;
     private String nit;
-    private String numeroRegisto;
+    private String numeroRegistro;
     private String giro;
     private String action;
     private String error;
@@ -70,12 +70,12 @@ public class EmpresasActionForm extends org.apache.struts.action.ActionForm {
         this.nit = nit;
     }
 
-    public String getNumeroRegisto() {
-        return numeroRegisto;
+    public String getNumeroRegistro() {
+        return numeroRegistro;
     }
 
-    public void setNumeroRegisto(String numeroRegisto) {
-        this.numeroRegisto = numeroRegisto;
+    public void setNumeroRegistro(String numeroRegistro) {
+        this.numeroRegistro = numeroRegistro;
     }
 
     public String getGiro() {

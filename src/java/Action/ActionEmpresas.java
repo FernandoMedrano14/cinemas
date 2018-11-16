@@ -48,11 +48,13 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
         String action = formEmp.getAction();
         
         if (action.equals("Iniciar")) {
-            System.out.println("Entro en el action empresas");
-             List<Empresas> listaEmpresa = emp.consultartodo();
-             formEmp.setListaEmpresa(listaEmpresa);
-             return mapping.findForward(CONSULTAR);
-        } 
+            List<Empresas> listaEmpresa = emp.consultartodo();
+            formEmp.setListaEmpresa(listaEmpresa);
+            return mapping.findForward(CONSULTAR);
+        } else {
+            formEmp.setError("<span style='color:red'> Problemas al cargar la lista");
+            System.out.println("problema al cargar la lista");
+        }
         
         if (action.equals("Agregar")) {
             String advertencia = "";

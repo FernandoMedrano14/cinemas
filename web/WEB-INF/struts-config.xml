@@ -47,6 +47,7 @@
     </global-forwards>
 
     <action-mappings>
+        <action name="FuncionesActionForm" path="/system/funciones" scope="session" type="Action.ActionFunciones"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
         <action name="EmpresasActionForm" path="/system/empresa" scope="request" type="Action.ActionEmpresas"/>
     </action-mappings>
