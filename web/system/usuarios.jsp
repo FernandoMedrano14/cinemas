@@ -14,6 +14,9 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/simple-sidebar.css" rel="stylesheet">
+        <!-- Javascript para máscaras -->
+        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="js/documentController.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -67,31 +70,31 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Nombres:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese nombre del usuario">
+                                    <input type="text" class="form-control" placeholder="Ingrese nombre del usuario" maxlength="100">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Apellidos:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese apellido del usuario">
+                                    <input type="text" class="form-control" placeholder="Ingrese apellido del usuario" maxlength="100">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Usuario:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese nombre de usuario">
+                                    <input type="text" class="form-control" placeholder="Ingrese nombre de usuario" maxlength="25">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Correo:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese correo del usuario">
+                                    <input type="text" class="form-control" placeholder="Ingrese correo del usuario" maxlength="100">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Contraseña:</label>
                                 <div class="col-sm-9">
-                                    <input type="password" class="form-control" placeholder="Ingrese contraseña del usuario">
+                                    <input type="password" class="form-control" placeholder="Ingrese contraseña del usuario" maxlength="100">
                                 </div>
                             </div>
                             <div class="form-group row">

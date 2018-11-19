@@ -14,6 +14,9 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/simple-sidebar.css" rel="stylesheet">
+        <!-- Javascript para máscaras -->
+        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="js/documentController.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -63,19 +66,19 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Sucursal:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese nombre de la sucursal">
+                                    <input type="text" class="form-control" placeholder="Ingrese nombre de la sucursal" maxlength="100">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Dirección:</label>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control" style="width: 100%; min-height:100px; max-height: 100px"></textarea>
+                                    <textarea class="form-control" style="width: 100%; min-height:100px; max-height: 100px" maxlength="100"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Teléfono:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese número telefónico">
+                                    <input type="text" class="form-control phone" placeholder="Ingrese número telefónico">
                                 </div>
                             </div>
                             <div class="form-group row">
