@@ -43,10 +43,12 @@
                                     <logic:iterate id="ver" name="EmpresasActionForm" property="listaEmpresa">
                                         <tr>
                                             <html:form action="/system/empresa">
+                                    
                                                 <th scope="row"><bean:write name="ver" property="nombre" /></th>
                                                 <td><bean:write name="ver" property="direccion" /></td>
                                                 <td><bean:write name="ver" property="telefono" /></td>
                                                 <td><bean:write name="ver" property="nit" /></td>
+                                             
                                             </html:form>
                                         </tr>
                                     </logic:iterate>
@@ -96,10 +98,15 @@
                             </div>
                             <div class="text-center">
                                 </br>
+<<<<<<< HEAD
                                 <!--botones para realizar acciones del formulario-->
                                 
                                 <html:submit styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
                                 
+=======
+                            
+                                <html:submit styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
+>>>>>>> master
                                 <button type="submit" class="btn btn-secondary">Modificar</button>
                                 <button type="submit" class="btn btn-danger">Eliminar</button><br></br>
                             </div>
