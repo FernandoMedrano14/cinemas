@@ -14,6 +14,9 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/simple-sidebar.css" rel="stylesheet">
+        <!-- Javascript para máscaras -->
+        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="js/documentController.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -77,14 +80,14 @@
                                         <span class="input-group-append input-group-addon">
                                             <span class="input-group-text" style="font-size: 15px;"><b>$</b></span>
                                         </span>
-                                        <input type="text" class="form-control" placeholder="Precio">
+                                        <input type="text" class="form-control decimal" placeholder="Precio">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Descripción:</label>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control" style="width: 100%; min-height:150px; max-height: 150px"></textarea>
+                                    <textarea class="form-control" style="width: 100%; min-height:150px; max-height: 150px" maxlength="300"></textarea>
                                 </div>
                             </div>
                             <div class="text-center">

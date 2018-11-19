@@ -14,6 +14,9 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/simple-sidebar.css" rel="stylesheet">
+        <!-- Javascript para máscaras -->
+        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="js/documentController.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -88,25 +91,25 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Título:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese título de la película">
+                                    <input type="text" class="form-control" placeholder="Ingrese título de la película" maxlength="150">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Duración:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese duración de la película">
+                                    <input type="text" class="form-control duracion" placeholder="Ingrese duración de la película">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Actores:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese actores de la película">
+                                    <input type="text" class="form-control" placeholder="Ingrese actores de la película" maxlength="150">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Sinópsis:</label>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control" style="width: 100%; min-height:150px; max-height: 150px"></textarea>
+                                    <textarea class="form-control" style="width: 100%; min-height:150px; max-height: 150px" maxlength="500"></textarea>
                                 </div>
                             </div>
                             <div class="text-center">

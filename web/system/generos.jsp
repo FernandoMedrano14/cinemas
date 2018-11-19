@@ -14,6 +14,9 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
+    <!-- Javascript para máscaras -->
+        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="js/documentController.js"></script>
 </head>
 <body style="background-color: #E2fff0">
     <%@include file="./ext/menu.html" %>
@@ -58,7 +61,7 @@
                       <div class="form-group row" style="margin-top: 20%">
                           <label class="col-sm-3 col-form-label">Genero:</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Ingrese un genero de pelicula">
+                              <input type="text" class="form-control" placeholder="Ingrese un genero de pelicula" maxlength="50">
                           </div>
                         </div>
                         <div class="text-center" style="margin-top: 20%">
