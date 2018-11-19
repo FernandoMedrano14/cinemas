@@ -34,11 +34,13 @@ public class EmpresasMantenimiento {
         }catch(Exception ex){
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
+                System.out.println("Error: "+ex);
                 r = false;
             }
         } finally {
             session.close();
         }
+        System.out.println(r);
         return r;
     }
 

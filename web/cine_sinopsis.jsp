@@ -20,7 +20,7 @@
 
                 <div class="col-2 text-right" style="background-color: black">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="margin-right: -25px; padding-top: 50%">
-                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="cine_cartelera.html" role="tab" aria-controls="v-pills-home" aria-selected="true">Ver Cartelera</a>
+                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="cine_cartelera.jsp" role="tab" aria-controls="v-pills-home" aria-selected="true">Ver Cartelera</a>
                     </div>
                 </div>
                 <div class="col-10 text-dark">
