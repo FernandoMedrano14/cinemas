@@ -14,6 +14,9 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/simple-sidebar.css" rel="stylesheet">
+        <!-- Javascript para máscaras -->
+        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="js/documentController.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -126,19 +129,19 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Nombre:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese nombre del cliente">
+                                    <input type="text" class="form-control" placeholder="Ingrese nombre del cliente" maxlength="100">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">DUI:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese DUI del cliente">
+                                    <input type="text" class="form-control dui" placeholder="Ingrese DUI del cliente">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Cantidad:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese cantidad de tickets">
+                                    <input type="text" class="form-control entero" placeholder="Ingrese cantidad de tickets">
                                 </div>
                             </div>
                             <div class="form-group row">
