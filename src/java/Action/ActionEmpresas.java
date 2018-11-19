@@ -54,14 +54,15 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
             List<Empresas> listaEmpresa = emp.consultartodo();
             formEmp.setListaEmpresa(listaEmpresa);
             return mapping.findForward(CONSULTAR);
-        } else {
-            formEmp.setError("<span style='color:red'> Problemas al cargar la lista");
-            System.out.println("problema al cargar la lista");
-        }
+        } 
         
         if (action.equals("Nueva")) {
+            System.out.println("Entrando al accion");
             String advertencia = "";
-
+            
+            if (idEmpresa != 0) {
+                advertencia = "Este usuario ya existe";
+            }
             if (nombre == null || nombre.equals("")) {
                 advertencia = "*Es necesario agragar el nombre<br>";
             }
@@ -85,11 +86,11 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
             if (giro == null || giro.equals("")) {
                 advertencia = "*se necesita ingresar el numero de Registro<br>";
             }
-            
+            System.out.println(advertencia);
             if (!advertencia.equals("")) {
                 formEmp.setError("<span style='color:red'> Complete los campos sin rellenar" + "<br>" + advertencia + "</span>");
                 return mapping.findForward(ERROR);
-  
+                
             }
             
             Empresas e = new Empresas();
@@ -100,6 +101,7 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
             e.setNit(nit);
             e.setNumeroRegistro(numeroRegistro);
             e.setGiro(giro);
+            
             
             EmpresasMantenimiento emp = new EmpresasMantenimiento();
          if(emp.guardarEmpresa(e)){
@@ -131,7 +133,8 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
             }
         }
         
-         if (action.equals("modificar")) {
+         if (action.equals("Modificar")) {
+             System.out.println("Entra el accion");
             String advertencia = "";
             Empresas e = new Empresas();
             e.setIdEmpresa(idEmpresa);
@@ -188,6 +191,9 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
             formEmp.setNit(e.getNit());
             formEmp.setNumeroRegistro(e.getNumeroRegistro());
             formEmp.setGiro(e.getGiro());
+            
+            List<Empresas> listaEmpresa = emp.consultartodo();
+            formEmp.setListaEmpresa(listaEmpresa);
 
             return mapping.findForward(CONFIRMARID);
         }
