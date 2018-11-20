@@ -30,14 +30,14 @@ public class GeneroAction extends org.apache.struts.action.Action {
     private static final String CONSULTAR = "consultarGenero";
     private static final String MODIFICAR = "modificarGenero";
     private static final String MOSTRAR = "confirmacion";
-
-    
+ 
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response){
         
         GenerosActionForm bean = (GenerosActionForm) form;
-        int idGenero = bean.getIdGenero();
+        
+        Integer idGenero = bean.getIdGenero();
         String genero = bean.getGenero();
         String action  = bean.getAction();
         
@@ -48,7 +48,7 @@ public class GeneroAction extends org.apache.struts.action.Action {
             return mapping.findForward(CONSULTAR);
         }
         
-        if(action.equals("Nueva")){
+        if(action.equals("Nueva")){   
             String advertencia = "";
 
             if (idGenero != 0) {

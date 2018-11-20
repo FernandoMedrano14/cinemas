@@ -25,6 +25,7 @@ public class GenerosMantenimiento {
     }
 
     public boolean guardarGenero(Generos g) {
+        System.out.println("Entra al mantenimiento");
         boolean r = false;
         try {
             session.beginTransaction();

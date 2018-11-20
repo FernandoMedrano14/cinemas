@@ -25,11 +25,11 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
     private static final String CONFIRMACION = "confirmarempresa";
     private static final String ERROR = "errorempresa";
     private static final String CONFIRMARID = "consultaridempresa";
-    private static final String GUARDAR = "guardar";
+    private static final String GUARDAR = "guardarempresas";
     private static final String ELIMINAR = "eliminarempresas";
     private static final String CONSULTAR = "consultarempresas";
     private static final String MODIFICAR = "modificarempresas";
-    private static final String MOSTRAR = "confirmacion";
+    private static final String MOSTRAR = "confirmarempresas";
 
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -54,7 +54,6 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
         }
 
         if (action.equals("Nueva")) {
-            System.out.println("Entrando al accion");
             String advertencia = "";
 
             if (idEmpresa != 0) {

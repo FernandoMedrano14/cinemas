@@ -42,13 +42,13 @@
     <global-forwards>
                             <!-- Forward Empresas -->
         <forward name="confirmarempresa" path="/system/empresas.jsp"></forward>                    
-        <forward name="errorempresa" path="empresas.jsp"></forward>
+        <forward name="errorempresa" path="/system/empresas.jsp"></forward>
         <forward name="consultaridempresa" path="/system/empresas.jsp"></forward>
-        <forward name="guardarempresa" path="empresas.jsp"></forward>
+        <forward name="guardarempresas" path="/system/empresas.jsp"></forward>
         <forward name="eliminarempresas" path="/system/empresas.jsp"></forward>
         <forward name="consultarempresas" path="/system/empresas.jsp"></forward>
         <forward name="modificarempresas" path="/system/empresas.jsp"></forward>
-        <forward name="confirmacion" path="empresas.jsp"></forward>
+        <forward name="confirmacio" path="empresas.jsp"></forward>
         
                             <!-- Forward Funciones -->
         <forward name="confirmarfuncion" path="/system/funciones.jsp"></forward>                    
