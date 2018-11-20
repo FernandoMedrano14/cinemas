@@ -12,7 +12,7 @@ public class Horarios  implements java.io.Serializable {
 
 
      private Integer idHorario;
-     private Salas salas;
+     private Integer idSala;
      private String horario;
      private Set funcioneses = new HashSet(0);
 
@@ -20,12 +20,12 @@ public class Horarios  implements java.io.Serializable {
     }
 
 	
-    public Horarios(Salas salas, String horario) {
-        this.salas = salas;
+    public Horarios(Integer idSala, String horario) {
+        this.idSala = idSala;
         this.horario = horario;
     }
-    public Horarios(Salas salas, String horario, Set funcioneses) {
-       this.salas = salas;
+    public Horarios(Integer idSala, String horario, Set funcioneses) {
+       this.idSala = idSala;
        this.horario = horario;
        this.funcioneses = funcioneses;
     }
@@ -37,12 +37,13 @@ public class Horarios  implements java.io.Serializable {
     public void setIdHorario(Integer idHorario) {
         this.idHorario = idHorario;
     }
-    public Salas getSalas() {
-        return this.salas;
-    }
     
-    public void setSalas(Salas salas) {
-        this.salas = salas;
+    public Integer getIdSala() {
+        return idSala;
+    }
+
+    public void setIdSala(Integer idSala) {
+        this.idSala = idSala;
     }
     public String getHorario() {
         return this.horario;

@@ -132,8 +132,8 @@ public class GeneroAction extends org.apache.struts.action.Action {
             int idRecibido = (Integer.parseInt(request.getParameter("id")));
             GenerosMantenimiento ge = new GenerosMantenimiento();
             Generos g = ge.consultarGenero(idRecibido);
-            bean.setIdGenero(idGenero);
-            bean.setGenero(genero);
+            bean.setIdGenero(g.getIdGenero());
+            bean.setGenero(g.getGenero());
             
             List<Generos> listaGeneros = ge.consultartodo();
             bean.setListaGeneros(listaGeneros);

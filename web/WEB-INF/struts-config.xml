@@ -81,63 +81,63 @@
         <forward name="confirmacion" path="horarios.jsp"></forward>
         
                             <!-- Forward Peliculas -->
-        <forward name="confirmarpelicula" path="/system/peliculas.jsp"></forward>                    
-        <forward name="errorpelicula" path="peliculas.jsp"></forward>
+        <forward name="confirmarPelicula" path="/system/peliculas.jsp"></forward>                    
+        <forward name="errorPelicula" path="peliculas.jsp"></forward>
         <forward name="consultaridpelicula" path="peliculas.jsp"></forward>
-        <forward name="guardar" path="peliculas.jsp"></forward>
-        <forward name="eliminar" path="peliculas.jsp"></forward>
-        <forward name="consultarpelicula" path="/system/peliculas.jsp"></forward>
-        <forward name="modificar" path="peliculas.jsp"></forward>
+        <forward name="guardarPelicula" path="peliculas.jsp"></forward>
+        <forward name="eliminarPelicula" path="peliculas.jsp"></forward>
+        <forward name="consultarPelicula" path="/system/peliculas.jsp"></forward>
+        <forward name="modificarPelicula" path="peliculas.jsp"></forward>
         <forward name="confirmacion" path="peliculas.jsp"></forward>
         
                             <!-- Forward Precios -->
-        <forward name="confirmarprecios" path="/system/precios.jsp"></forward>                    
-        <forward name="errorprecios" path="precios.jsp"></forward>
+        <forward name="confirmarPrecios" path="/system/precios.jsp"></forward>                    
+        <forward name="errorPrecios" path="precios.jsp"></forward>
         <forward name="consultaridprecios" path="precios.jsp"></forward>
-        <forward name="guardar" path="precios.jsp"></forward>
-        <forward name="eliminar" path="precios.jsp"></forward>
-        <forward name="consultarprecios" path="/system/precios.jsp"></forward>
-        <forward name="modificar" path="precios.jsp"></forward>
+        <forward name="guardarPrecios" path="precios.jsp"></forward>
+        <forward name="eliminarPrecios" path="precios.jsp"></forward>
+        <forward name="consultarPrecios" path="/system/precios.jsp"></forward>
+        <forward name="modificarPrecios" path="precios.jsp"></forward>
         <forward name="confirmacion" path="precios.jsp"></forward>
         
                             <!-- Forward Salas -->
-        <forward name="confirmarsala" path="/system/salas.jsp"></forward>                    
-        <forward name="errorsala" path="salas.jsp"></forward>
+        <forward name="confirmarSala" path="/system/salas.jsp"></forward>                    
+        <forward name="errorSala" path="salas.jsp"></forward>
         <forward name="consultaridsala" path="salas.jsp"></forward>
-        <forward name="guardar" path="salas.jsp"></forward>
-        <forward name="eliminar" path="salas.jsp"></forward>
-        <forward name="consultarsala" path="/system/salas.jsp"></forward>
-        <forward name="modificar" path="salas.jsp"></forward>
+        <forward name="guardarSala" path="salas.jsp"></forward>
+        <forward name="eliminarSala" path="salas.jsp"></forward>
+        <forward name="consultarSala" path="/system/salas.jsp"></forward>
+        <forward name="modificarSala" path="salas.jsp"></forward>
         <forward name="confirmacion" path="salas.jsp"></forward>
         
                             <!-- Forward Sucursales -->
-        <forward name="confirmarsucursal" path="/system/sucursales.jsp"></forward>                    
-        <forward name="errorsucursal" path="sucursales.jsp"></forward>
+        <forward name="confirmarSucursal" path="/system/sucursales.jsp"></forward>                    
+        <forward name="errorSucursal" path="sucursales.jsp"></forward>
         <forward name="consultaridsucursal" path="sucursales.jsp"></forward>
-        <forward name="guardar" path="sucursales.jsp"></forward>
-        <forward name="eliminar" path="sucursales.jsp"></forward>
-        <forward name="consultarsucursal" path="/system/sucursales.jsp"></forward>
-        <forward name="modificar" path="sucursales.jsp"></forward>
+        <forward name="guardarSucursal" path="sucursales.jsp"></forward>
+        <forward name="eliminarSucursal" path="sucursales.jsp"></forward>
+        <forward name="consultarSucursal" path="/system/sucursales.jsp"></forward>
+        <forward name="modificarSucursal" path="sucursales.jsp"></forward>
         <forward name="confirmacion" path="sucursales.jsp"></forward>
         
                             <!-- Forward Usuarios -->
-        <forward name="confirmarusuario" path="/system/usuarios.jsp"></forward>                    
-        <forward name="errorusuario" path="usuarios.jsp"></forward>
+        <forward name="confirmarUsuario" path="/system/usuarios.jsp"></forward>                    
+        <forward name="errorUsuario" path="usuarios.jsp"></forward>
         <forward name="consultaridusuario" path="usuarios.jsp"></forward>
-        <forward name="guardar" path="usuarios.jsp"></forward>
-        <forward name="eliminar" path="usuarios.jsp"></forward>
-        <forward name="consultarusuario" path="/system/usuarios.jsp"></forward>
-        <forward name="modificar" path="usuarios.jsp"></forward>
+        <forward name="guardarUsuario" path="usuarios.jsp"></forward>
+        <forward name="eliminarUsuario" path="usuarios.jsp"></forward>
+        <forward name="consultarUsuario" path="/system/usuarios.jsp"></forward>
+        <forward name="modificarUsuario" path="usuarios.jsp"></forward>
         <forward name="confirmacion" path="usuarios.jsp"></forward>
         
                             <!-- Forward Ventas -->
-        <forward name="confirmarventa" path="/system/tickets.jsp"></forward>                    
-        <forward name="errorventa" path="tickets.jsp"></forward>
+        <forward name="confirmarVenta" path="/system/tickets.jsp"></forward>                    
+        <forward name="errorVenta" path="tickets.jsp"></forward>
         <forward name="consultaridventa" path="tickets.jsp"></forward>
-        <forward name="guardar" path="tickets.jsp"></forward>
-        <forward name="eliminar" path="tickets.jsp"></forward>
-        <forward name="consultarventa" path="/system/tickets.jsp"></forward>
-        <forward name="modificar" path="tickets.jsp"></forward>
+        <forward name="guardarVenta" path="tickets.jsp"></forward>
+        <forward name="eliminarVenta" path="tickets.jsp"></forward>
+        <forward name="consultarVenta" path="/system/tickets.jsp"></forward>
+        <forward name="modificarVenta" path="tickets.jsp"></forward>
         <forward name="confirmacion" path="tickets.jsp"></forward>
         
     </global-forwards>

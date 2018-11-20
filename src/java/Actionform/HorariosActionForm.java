@@ -6,6 +6,7 @@
 package Actionform;
 
 import Persistencia.Horarios;
+import Persistencia.Salas;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,6 +26,7 @@ public class HorariosActionForm extends org.apache.struts.action.ActionForm {
     private String action;
     private String error;
     private List<Horarios> listaHorario;
+    private List<Salas> listaSala;
 
     public Integer getIdHorario() {
         return idHorario;
@@ -72,6 +74,14 @@ public class HorariosActionForm extends org.apache.struts.action.ActionForm {
 
     public void setListaHorario(List<Horarios> listaHorario) {
         this.listaHorario = listaHorario;
+    }
+
+    public List<Salas> getListaSala() {
+        return listaSala;
+    }
+
+    public void setListaSala(List<Salas> listaSala) {
+        this.listaSala = listaSala;
     }
     
 }
