@@ -43,11 +43,11 @@
                             <!-- Forward Empresas -->
         <forward name="confirmarempresa" path="/system/empresas.jsp"></forward>                    
         <forward name="errorempresa" path="empresas.jsp"></forward>
-        <forward name="consultaridempresa" path="empresas.jsp"></forward>
+        <forward name="consultaridempresa" path="/system/empresas.jsp"></forward>
         <forward name="guardarempresa" path="empresas.jsp"></forward>
-        <forward name="eliminar" path="empresas.jsp"></forward>
+        <forward name="eliminar" path="/system/empresas.jsp"></forward>
         <forward name="consultarempresas" path="/system/empresas.jsp"></forward>
-        <forward name="modificar" path="empresas.jsp"></forward>
+        <forward name="modificar" path="/system/empresas.jsp"></forward>
         <forward name="confirmacion" path="empresas.jsp"></forward>
         
                             <!-- Forward Funciones -->

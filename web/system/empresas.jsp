@@ -14,6 +14,8 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/simple-sidebar.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -29,9 +31,10 @@
                     </div>
                     <!--Tabla con información de las empresas registradas-->
                     <div class="col-md-8 ">
-                        <table class="table table-hover border border-dark" style="background-color: white">
+                        <table class="table table-hover border border-dark" id="empresasTable" style="background-color: white">
                             <thead class="thead-dark">
                                 <tr>
+                                    
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Dirección</th>
                                     <th scope="col">Telefono</th>
@@ -39,20 +42,24 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <logic:notEmpty name="EmpresasActionForm" property="listaEmpresa">
                                     <logic:iterate id="ver" name="EmpresasActionForm" property="listaEmpresa">
-                                        <tr>
-                                            <html:form action="/system/empresa">
-                                    
-                                                <th scope="row"><bean:write name="ver" property="nombre" /></th>
+
+                                        <html:form action="/system/empresa">
+                                            
+                                            <tr  style="cursor: pointer;" id="registro" class="infoBtn" 
+                                                data-info="${ver.idEmpresa};;${ver.nombre};;${ver.direccion};;${ver.telefono};;${ver.nit};;${ver.numeroRegistro};;${ver.giro}">
+                                                
+                                                <th scope="row"><bean:write name="ver" property="nombre"/></th>
                                                 <td><bean:write name="ver" property="direccion" /></td>
                                                 <td><bean:write name="ver" property="telefono" /></td>
                                                 <td><bean:write name="ver" property="nit" /></td>
-                                             
-                                            </html:form>
-                                        </tr>
-                                    </logic:iterate>
-                                </logic:notEmpty>
+                                            </tr>
+
+                                        </html:form>                                    
+                                </logic:iterate>
+                            </logic:notEmpty>
                             </tbody>
                         </table>
                     </div>
@@ -60,56 +67,55 @@
                     <div class="col-md-4 border border-dark rounded" style="background-color: white">
                         <html:form action="/system/empresa">
                             </br>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Nombre:</label>
+                            <div class="form-group row" hidden="true">
+                                <label class="col-sm-3 col-form-label">ID:</label>
                                 <div class="col-sm-9">
-                                    <html:text styleClass="form-control" property="nombre"></html:text>
+                                    <html:text styleId="idEmpresa" styleClass="form-control" property="idEmpresa" readonly="true"></html:text>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Dirección:</label>
-                                <div class="col-sm-9">
-                                    <html:text styleClass="form-control" property="direccion"></html:text>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nombre:</label>
+                                    <div class="col-sm-9">
+                                    <html:text styleId="nombre" styleClass="form-control" property="nombre"></html:text>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Telefono:</label>
-                                <div class="col-sm-9">
-                                    <html:text styleClass="form-control" property="telefono"></html:text>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Dirección:</label>
+                                    <div class="col-sm-9">
+                                    <html:text styleId="direccion" styleClass="form-control" property="direccion"></html:text>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">NIT:</label>
-                                <div class="col-sm-9">
-                                    <html:text styleClass="form-control" property="nit"></html:text>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Telefono:</label>
+                                    <div class="col-sm-9">
+                                    <html:text styleId="telefono" styleClass="form-control" property="telefono"></html:text>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Registro:</label>
-                                <div class="col-sm-9">
-                                    <html:text styleClass="form-control" property="numeroRegistro"></html:text>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">NIT:</label>
+                                    <div class="col-sm-9">
+                                    <html:text styleId="nit" styleClass="form-control" property="nit"></html:text>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Giro:</label>
-                                <div class="col-sm-9">
-                                   <html:text styleClass="form-control" property="giro"></html:text>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Registro:</label>
+                                    <div class="col-sm-9">
+                                    <html:text styleId="numeroRegistro" styleClass="form-control" property="numeroRegistro"></html:text>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                </br>
-<<<<<<< HEAD
-                                <!--botones para realizar acciones del formulario-->
-                                
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Giro:</label>
+                                    <div class="col-sm-9">
+                                    <html:text styleId="giro" styleClass="form-control" property="giro"></html:text>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    </br>
+
                                 <html:submit styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
-                                
-=======
-                            
-                                <html:submit styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
->>>>>>> master
-                                <button type="submit" class="btn btn-secondary">Modificar</button>
-                                <button type="submit" class="btn btn-danger">Eliminar</button><br></br>
-                            </div>
+                                <html:submit styleClass="btn btn-secondary" property="action" value="Modificar"></html:submit>
+                                <html:submit styleClass="btn btn-danger" property="action" value="Eliminar"></html:submit>
+                                </div>
                         </html:form>
                     </div>
                 </div>        
@@ -120,15 +126,29 @@
     <!-- /#wrapper -->
 
     <!-- Bootstrap core JavaScript -->
+
+
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>
 
-        $("#wrapper").toggleClass("toggled");
-
+    $("#wrapper").toggleClass("toggled");
+    
+    $("#empresasTable").on("dblclick", ".infoBtn",function(){
+        var data = $(this).data("info").split(";;");
+        $("#idEmpresa").val(data[0]);
+        $("#nombre").val(data[1]);
+        $("#direccion").val(data[2]);
+        $("#telefono").val(data[3]);
+        $("#nit").val(data[4]);
+        $("#numeroRegistro").val(data[5]);
+        $("#giro").val(data[6]);
+    });
+    
     </script>
+    
 
 </body>
 
