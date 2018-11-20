@@ -48,7 +48,7 @@
 
                                         <html:form action="/system/empresa">
                                             
-                                            <tr id="registro" class="infoBtn" 
+                                            <tr  style="cursor: pointer;" id="registro" class="infoBtn" 
                                                 data-info="${ver.idEmpresa};;${ver.nombre};;${ver.direccion};;${ver.telefono};;${ver.nit};;${ver.numeroRegistro};;${ver.giro}">
                                                 
                                                 <th scope="row"><bean:write name="ver" property="nombre"/></th>
@@ -114,8 +114,7 @@
 
                                 <html:submit styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
                                 <html:submit styleClass="btn btn-secondary" property="action" value="Modificar"></html:submit>
-                                    
-                                    <button type="submit" class="btn btn-danger">Eliminar</button><br></br>
+                                <html:submit styleClass="btn btn-danger" property="action" value="Eliminar"></html:submit>
                                 </div>
                         </html:form>
                     </div>
