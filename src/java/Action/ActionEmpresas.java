@@ -26,9 +26,9 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
     private static final String ERROR = "errorempresa";
     private static final String CONFIRMARID = "consultaridempresa";
     private static final String GUARDAR = "guardar";
-    private static final String ELIMINAR = "eliminar";
+    private static final String ELIMINAR = "eliminarempresas";
     private static final String CONSULTAR = "consultarempresas";
-    private static final String MODIFICAR = "modificar";
+    private static final String MODIFICAR = "modificarempresas";
     private static final String MOSTRAR = "confirmacion";
 
     @Override
@@ -207,4 +207,4 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
     }
 
 }
->>>>>>> master
+

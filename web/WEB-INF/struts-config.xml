@@ -45,39 +45,39 @@
         <forward name="errorempresa" path="empresas.jsp"></forward>
         <forward name="consultaridempresa" path="/system/empresas.jsp"></forward>
         <forward name="guardarempresa" path="empresas.jsp"></forward>
-        <forward name="eliminar" path="/system/empresas.jsp"></forward>
+        <forward name="eliminarempresas" path="/system/empresas.jsp"></forward>
         <forward name="consultarempresas" path="/system/empresas.jsp"></forward>
-        <forward name="modificar" path="/system/empresas.jsp"></forward>
+        <forward name="modificarempresas" path="/system/empresas.jsp"></forward>
         <forward name="confirmacion" path="empresas.jsp"></forward>
         
                             <!-- Forward Funciones -->
         <forward name="confirmarfuncion" path="/system/funciones.jsp"></forward>                    
-        <forward name="errorfuncion" path="funciones.jsp"></forward>
+        <forward name="errorFuncion" path="funciones.jsp"></forward>
         <forward name="consultaridfuncion" path="funciones.jsp"></forward>
-        <forward name="guardar" path="funciones.jsp"></forward>
-        <forward name="eliminar" path="funciones.jsp"></forward>
-        <forward name="consultarfuncion" path="/system/funciones.jsp"></forward>
-        <forward name="modificar" path="funciones.jsp"></forward>
+        <forward name="guardarFuncion" path="funciones.jsp"></forward>
+        <forward name="eliminarFuncion" path="funciones.jsp"></forward>
+        <forward name="consultarFuncion" path="/system/funciones.jsp"></forward>
+        <forward name="modificarFuncion" path="funciones.jsp"></forward>
         <forward name="confirmacion" path="funciones.jsp"></forward>
         
                             <!-- Forward Generos -->
-        <forward name="confirmargenero" path="/system/generos.jsp"></forward>                    
-        <forward name="errorgeneros" path="generos.jsp"></forward>
-        <forward name="consultaridgeneros" path="generos.jsp"></forward>
-        <forward name="guardar" path="generos.jsp"></forward>
-        <forward name="eliminar" path="generos.jsp"></forward>
-        <forward name="consultargeneros" path="/system/generos.jsp"></forward>
-        <forward name="modificar" path="generos.jsp"></forward>
+        <forward name="confirmarGenero" path="/system/generos.jsp"></forward>                    
+        <forward name="errorGeneros" path="/system/generos.jsp"></forward>
+        <forward name="consultaridgenero" path="/system/generos.jsp"></forward>
+        <forward name="guardarGenero" path="/system/generos.jsp"></forward>
+        <forward name="eliminarGenero" path="/system/generos.jsp"></forward>
+        <forward name="consultarGenero" path="/system/generos.jsp"></forward>
+        <forward name="modificarGenero" path="/system/generos.jsp"></forward>
         <forward name="confirmacion" path="generos.jsp"></forward>
         
                             <!-- Forward Horarios -->
-        <forward name="confirmarhorario" path="/system/horarios.jsp"></forward>                    
-        <forward name="errorhorario" path="horarios.jsp"></forward>
-        <forward name="consultaridhorario" path="horarios.jsp"></forward>
-        <forward name="guardar" path="horarios.jsp"></forward>
-        <forward name="eliminar" path="horarios.jsp"></forward>
-        <forward name="consultarhorario" path="/system/horarios.jsp"></forward>
-        <forward name="modificar" path="horarios.jsp"></forward>
+        <forward name="confirmarHorario" path="/system/horarios.jsp"></forward>                    
+        <forward name="errorHorario" path="/system/horarios.jsp"></forward>
+        <forward name="consultaridhorario" path="/system/horarios.jsp"></forward>
+        <forward name="guardarHorario" path="/system/horarios.jsp"></forward>
+        <forward name="eliminarHorario" path="/system/horarios.jsp"></forward>
+        <forward name="consultarHorario" path="/system/horarios.jsp"></forward>
+        <forward name="modificarHorario" path="/system/horarios.jsp"></forward>
         <forward name="confirmacion" path="horarios.jsp"></forward>
         
                             <!-- Forward Peliculas -->
