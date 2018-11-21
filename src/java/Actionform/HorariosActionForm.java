@@ -22,6 +22,7 @@ public class HorariosActionForm extends org.apache.struts.action.ActionForm {
     
     private Integer idHorario;
     private Integer idSala;
+    private Salas salas;
     private String horario;
     private String action;
     private String error;
@@ -38,6 +39,14 @@ public class HorariosActionForm extends org.apache.struts.action.ActionForm {
 
     public Integer getIdSala() {
         return idSala;
+    }
+
+    public Salas getSalas() {
+        return salas;
+    }
+
+    public void setSalas(Salas salas) {
+        this.salas = salas;
     }
 
     public void setIdSala(Integer idSala) {

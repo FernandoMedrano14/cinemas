@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-21-2018 02:24:55 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Persistencia.Clasificaciones" table="clasificaciones" catalog="cinemas" optimistic-lock="version">
+        <id name="idClasificacion" type="java.lang.Integer">
+            <column name="id_clasificacion" />
+            <generator class="identity" />
+        </id>
+        <property name="tipoClasificacion" type="string">
+            <column name="tipo_clasificacion" length="150" not-null="true" />
+        </property>
+        <property name="detalleClasificacion" type="string">
+            <column name="detalle_clasificacion" length="150" not-null="true" />
+        </property>
+        <set name="peliculases" table="peliculas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_clasificacion" not-null="true" />
+            </key>
+            <one-to-many class="Persistencia.Peliculas" />
+        </set>
+    </class>
+</hibernate-mapping>

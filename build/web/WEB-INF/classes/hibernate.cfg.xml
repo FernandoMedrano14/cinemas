@@ -42,20 +42,21 @@ Contributor(s):
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost/cinemas</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cinemas</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
-    <property name="hibernate.connection.pool_size">1</property>
-    <mapping resource="Persistencia/Salas.hbm.xml"/>
-    <mapping resource="Persistencia/Funciones.hbm.xml"/>
-    <mapping resource="Persistencia/TiposUsuarios.hbm.xml"/>
-    <mapping resource="Persistencia/Usuarios.hbm.xml"/>
-    <mapping resource="Persistencia/Horarios.hbm.xml"/>
+    <property name="hibernate.connection.pool_size">5</property>
     <mapping resource="Persistencia/Sucursales.hbm.xml"/>
-    <mapping resource="Persistencia/Precios.hbm.xml"/>
-    <mapping resource="Persistencia/Generos.hbm.xml"/>
+    <mapping resource="Persistencia/Funciones.hbm.xml"/>
+    <mapping resource="Persistencia/Horarios.hbm.xml"/>
+    <mapping resource="Persistencia/Usuarios.hbm.xml"/>
     <mapping resource="Persistencia/Empresas.hbm.xml"/>
-    <mapping resource="Persistencia/Peliculas.hbm.xml"/>
     <mapping resource="Persistencia/Ventas.hbm.xml"/>
+    <mapping resource="Persistencia/TiposUsuarios.hbm.xml"/>
+    <mapping resource="Persistencia/Clasificaciones.hbm.xml"/>
+    <mapping resource="Persistencia/Generos.hbm.xml"/>
+    <mapping resource="Persistencia/Precios.hbm.xml"/>
+    <mapping resource="Persistencia/Salas.hbm.xml"/>
+    <mapping resource="Persistencia/Peliculas.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

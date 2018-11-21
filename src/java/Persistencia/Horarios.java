@@ -1,5 +1,5 @@
 package Persistencia;
-// Generated 11-14-2018 10:47:01 AM by Hibernate Tools 4.3.1
+// Generated 11-21-2018 02:24:54 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,7 +12,7 @@ public class Horarios  implements java.io.Serializable {
 
 
      private Integer idHorario;
-     private Integer idSala;
+     private Salas salas;
      private String horario;
      private Set funcioneses = new HashSet(0);
 
@@ -20,12 +20,12 @@ public class Horarios  implements java.io.Serializable {
     }
 
 	
-    public Horarios(Integer idSala, String horario) {
-        this.idSala = idSala;
+    public Horarios(Salas salas, String horario) {
+        this.salas = salas;
         this.horario = horario;
     }
-    public Horarios(Integer idSala, String horario, Set funcioneses) {
-       this.idSala = idSala;
+    public Horarios(Salas salas, String horario, Set funcioneses) {
+       this.salas = salas;
        this.horario = horario;
        this.funcioneses = funcioneses;
     }
@@ -37,13 +37,12 @@ public class Horarios  implements java.io.Serializable {
     public void setIdHorario(Integer idHorario) {
         this.idHorario = idHorario;
     }
-    
-    public Integer getIdSala() {
-        return idSala;
+    public Salas getSalas() {
+        return this.salas;
     }
-
-    public void setIdSala(Integer idSala) {
-        this.idSala = idSala;
+    
+    public void setSalas(Salas salas) {
+        this.salas = salas;
     }
     public String getHorario() {
         return this.horario;

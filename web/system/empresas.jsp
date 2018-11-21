@@ -15,7 +15,12 @@
         <!-- Custom styles for this template -->
         <link href="css/simple-sidebar.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Javascript para máscaras -->
+        <script type="text/javascript" src="vendor/jquery/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="documentController.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -76,42 +81,41 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nombre:</label>
                                     <div class="col-sm-9">
-                                    <html:text styleId="nombre" styleClass="form-control" property="nombre"></html:text>
+                                    <html:text styleId="nombre" styleClass="form-control" property="nombre" maxlength="150"></html:text>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Dirección:</label>
                                     <div class="col-sm-9">
-                                    <html:text styleId="direccion" styleClass="form-control" property="direccion"></html:text>
+                                    <html:text styleId="direccion" styleClass="form-control" property="direccion" maxlength="150"></html:text>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Telefono:</label>
                                     <div class="col-sm-9">
-                                    <html:text styleId="telefono" styleClass="form-control" property="telefono"></html:text>
+                                    <html:text styleId="telefono" styleClass="form-control phone" property="telefono"></html:text>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">NIT:</label>
                                     <div class="col-sm-9">
-                                    <html:text styleId="nit" styleClass="form-control" property="nit"></html:text>
+                                    <html:text styleId="nit" styleClass="form-control nit" property="nit"></html:text>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Registro:</label>
                                     <div class="col-sm-9">
-                                    <html:text styleId="numeroRegistro" styleClass="form-control" property="numeroRegistro"></html:text>
+                                    <html:text styleId="numeroRegistro" styleClass="form-control nrc" property="numeroRegistro"></html:text>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Giro:</label>
                                     <div class="col-sm-9">
-                                    <html:text styleId="giro" styleClass="form-control" property="giro"></html:text>
+                                    <html:text styleId="giro" styleClass="form-control" property="giro" maxlength="100"></html:text>
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    </br>
-
+                                <br>
                                 <html:submit styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
                                 <html:submit styleClass="btn btn-secondary" property="action" value="Modificar"></html:submit>
                                 <html:submit styleClass="btn btn-danger" property="action" value="Eliminar"></html:submit>
@@ -124,12 +128,6 @@
         <!-- /#page-content-wrapper -->
     </div>
     <!-- /#wrapper -->
-
-    <!-- Bootstrap core JavaScript -->
-
-
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>

@@ -1,26 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11-14-2018 10:47:02 AM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-21-2018 02:24:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="cinemas" name="Persistencia.Salas" optimistic-lock="version" table="salas">
-    <id name="idSala" type="java.lang.Integer">
-      <column name="id_sala"/>
-      <generator class="identity"/>
-    </id>
-    <many-to-one class="Persistencia.Sucursales" fetch="select" name="sucursales">
-      <column name="id_sucursal" not-null="true"/>
-    </many-to-one>
-    <property name="numeroSala" type="java.lang.Integer">
-      <column name="numero_sala"/>
-    </property>
-    <property name="tipoSala" type="string">
-      <column length="10" name="tipo_sala"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="horarioses" table="horarios">
-      <key>
-        <column name="id_sala" not-null="true"/>
-      </key>
-      <one-to-many class="Persistencia.Horarios"/>
-    </set>
-  </class>
+    <class name="Persistencia.Salas" table="salas" catalog="cinemas" optimistic-lock="version">
+        <id name="idSala" type="java.lang.Integer">
+            <column name="id_sala" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sucursales" class="Persistencia.Sucursales" fetch="select">
+            <column name="id_sucursal" not-null="true" />
+        </many-to-one>
+        <property name="numeroSala" type="java.lang.Integer">
+            <column name="numero_sala" />
+        </property>
+        <property name="tipoSala" type="string">
+            <column name="tipo_sala" length="10" />
+        </property>
+        <set name="horarioses" table="horarios" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_sala" not-null="true" />
+            </key>
+            <one-to-many class="Persistencia.Horarios" />
+        </set>
+    </class>
 </hibernate-mapping>

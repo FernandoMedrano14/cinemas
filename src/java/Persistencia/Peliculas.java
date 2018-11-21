@@ -1,5 +1,5 @@
 package Persistencia;
-// Generated 11-14-2018 10:47:01 AM by Hibernate Tools 4.3.1
+// Generated 11-21-2018 02:24:54 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,6 +12,7 @@ public class Peliculas  implements java.io.Serializable {
 
 
      private Integer idPelicula;
+     private Clasificaciones clasificaciones;
      private Empresas empresas;
      private Generos generos;
      private String titulo;
@@ -27,12 +28,14 @@ public class Peliculas  implements java.io.Serializable {
     }
 
 	
-    public Peliculas(Empresas empresas, Generos generos, String estado) {
+    public Peliculas(Clasificaciones clasificaciones, Empresas empresas, Generos generos, String estado) {
+        this.clasificaciones = clasificaciones;
         this.empresas = empresas;
         this.generos = generos;
         this.estado = estado;
     }
-    public Peliculas(Empresas empresas, Generos generos, String titulo, String duracion, String actores, String directores, String sinopsis, String imagen, String estado, Set funcioneses) {
+    public Peliculas(Clasificaciones clasificaciones, Empresas empresas, Generos generos, String titulo, String duracion, String actores, String directores, String sinopsis, String imagen, String estado, Set funcioneses) {
+       this.clasificaciones = clasificaciones;
        this.empresas = empresas;
        this.generos = generos;
        this.titulo = titulo;
@@ -51,6 +54,13 @@ public class Peliculas  implements java.io.Serializable {
     
     public void setIdPelicula(Integer idPelicula) {
         this.idPelicula = idPelicula;
+    }
+    public Clasificaciones getClasificaciones() {
+        return this.clasificaciones;
+    }
+    
+    public void setClasificaciones(Clasificaciones clasificaciones) {
+        this.clasificaciones = clasificaciones;
     }
     public Empresas getEmpresas() {
         return this.empresas;

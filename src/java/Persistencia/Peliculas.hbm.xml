@@ -1,44 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11-14-2018 10:47:02 AM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-21-2018 02:24:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="cinemas" name="Persistencia.Peliculas" optimistic-lock="version" table="peliculas">
-    <id name="idPelicula" type="java.lang.Integer">
-      <column name="id_pelicula"/>
-      <generator class="identity"/>
-    </id>
-    <many-to-one class="Persistencia.Empresas" fetch="select" name="empresas">
-      <column name="id_empresa" not-null="true"/>
-    </many-to-one>
-    <many-to-one class="Persistencia.Generos" fetch="select" name="generos">
-      <column name="id_genero" not-null="true"/>
-    </many-to-one>
-    <property name="titulo" type="string">
-      <column length="150" name="titulo"/>
-    </property>
-    <property name="duracion" type="string">
-      <column length="10" name="duracion"/>
-    </property>
-    <property name="actores" type="string">
-      <column length="150" name="actores"/>
-    </property>
-    <property name="directores" type="string">
-      <column length="150" name="directores"/>
-    </property>
-    <property name="sinopsis" type="string">
-      <column length="500" name="sinopsis"/>
-    </property>
-    <property name="imagen" type="string">
-      <column length="500" name="imagen"/>
-    </property>
-    <property name="estado" type="string">
-      <column length="25" name="estado" not-null="true"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="funcioneses" table="funciones">
-      <key>
-        <column name="id_pelicula" not-null="true"/>
-      </key>
-      <one-to-many class="Persistencia.Funciones"/>
-    </set>
-  </class>
+    <class name="Persistencia.Peliculas" table="peliculas" catalog="cinemas" optimistic-lock="version">
+        <id name="idPelicula" type="java.lang.Integer">
+            <column name="id_pelicula" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="clasificaciones" class="Persistencia.Clasificaciones" fetch="select">
+            <column name="id_clasificacion" not-null="true" />
+        </many-to-one>
+        <many-to-one name="empresas" class="Persistencia.Empresas" fetch="select">
+            <column name="id_empresa" not-null="true" />
+        </many-to-one>
+        <many-to-one name="generos" class="Persistencia.Generos" fetch="select">
+            <column name="id_genero" not-null="true" />
+        </many-to-one>
+        <property name="titulo" type="string">
+            <column name="titulo" length="150" />
+        </property>
+        <property name="duracion" type="string">
+            <column name="duracion" length="10" />
+        </property>
+        <property name="actores" type="string">
+            <column name="actores" length="150" />
+        </property>
+        <property name="directores" type="string">
+            <column name="directores" length="150" />
+        </property>
+        <property name="sinopsis" type="string">
+            <column name="sinopsis" length="500" />
+        </property>
+        <property name="imagen" type="string">
+            <column name="imagen" length="500" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="25" not-null="true" />
+        </property>
+        <set name="funcioneses" table="funciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pelicula" not-null="true" />
+            </key>
+            <one-to-many class="Persistencia.Funciones" />
+        </set>
+    </class>
 </hibernate-mapping>

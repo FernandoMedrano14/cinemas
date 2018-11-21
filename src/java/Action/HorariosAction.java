@@ -72,7 +72,9 @@ public class HorariosAction extends org.apache.struts.action.Action {
             
             Horarios h = new Horarios();
             h.setIdHorario(idHorario);
-            h.setIdSala(idSala);
+            
+            Salas salas = new Salas();
+            h.setSalas(salas);
             h.setHorario(horario);
             
             HorariosMantenimiento hor = new HorariosMantenimiento();
@@ -103,7 +105,9 @@ public class HorariosAction extends org.apache.struts.action.Action {
             String advertencia = "";
             Horarios h = new Horarios();
             h.setIdHorario(idHorario);
-            h.setIdSala(idSala);
+            
+            Salas salas = new Salas();
+            h.setSalas(salas);
             h.setHorario(horario);
             
             HorariosMantenimiento hor = new HorariosMantenimiento();
@@ -144,7 +148,7 @@ public class HorariosAction extends org.apache.struts.action.Action {
             HorariosMantenimiento hor = new HorariosMantenimiento();
             Horarios h = hor.consultarHorario(idRecibido);
             bean.setIdHorario(h.getIdHorario());
-            bean.setIdSala(h.getIdSala());
+            bean.setSalas(h.getSalas());
             bean.setHorario(h.getHorario());
             
             List<Horarios> listaHorario = hor.consultartodo();

@@ -1,47 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11-14-2018 10:47:02 AM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-21-2018 02:24:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="cinemas" name="Persistencia.Empresas" optimistic-lock="version" table="empresas">
-    <id name="idEmpresa" type="java.lang.Integer">
-      <column name="id_empresa"/>
-      <generator class="identity"/>
-    </id>
-    <property name="nombre" type="string">
-      <column length="150" name="nombre"/>
-    </property>
-    <property name="direccion" type="string">
-      <column length="150" name="direccion"/>
-    </property>
-    <property name="telefono" type="string">
-      <column length="12" name="telefono"/>
-    </property>
-    <property name="nit" type="string">
-      <column length="20" name="nit"/>
-    </property>
-    <property name="numeroRegistro" type="string">
-      <column length="15" name="numero_registro"/>
-    </property>
-    <property name="giro" type="string">
-      <column length="100" name="giro"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="sucursaleses" table="sucursales">
-      <key>
-        <column name="id_empresa" not-null="true"/>
-      </key>
-      <one-to-many class="Persistencia.Sucursales"/>
-    </set>
-    <set fetch="select" inverse="true" lazy="true" name="peliculases" table="peliculas">
-      <key>
-        <column name="id_empresa" not-null="true"/>
-      </key>
-      <one-to-many class="Persistencia.Peliculas"/>
-    </set>
-    <set fetch="select" inverse="true" lazy="true" name="usuarioses" table="usuarios">
-      <key>
-        <column name="id_empresa" not-null="true"/>
-      </key>
-      <one-to-many class="Persistencia.Usuarios"/>
-    </set>
-  </class>
+    <class name="Persistencia.Empresas" table="empresas" catalog="cinemas" optimistic-lock="version">
+        <id name="idEmpresa" type="java.lang.Integer">
+            <column name="id_empresa" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="150" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="150" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="12" />
+        </property>
+        <property name="nit" type="string">
+            <column name="nit" length="20" />
+        </property>
+        <property name="numeroRegistro" type="string">
+            <column name="numero_registro" length="15" />
+        </property>
+        <property name="giro" type="string">
+            <column name="giro" length="100" />
+        </property>
+        <set name="sucursaleses" table="sucursales" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_empresa" not-null="true" />
+            </key>
+            <one-to-many class="Persistencia.Sucursales" />
+        </set>
+        <set name="peliculases" table="peliculas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_empresa" not-null="true" />
+            </key>
+            <one-to-many class="Persistencia.Peliculas" />
+        </set>
+        <set name="usuarioses" table="usuarios" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_empresa" not-null="true" />
+            </key>
+            <one-to-many class="Persistencia.Usuarios" />
+        </set>
+    </class>
 </hibernate-mapping>

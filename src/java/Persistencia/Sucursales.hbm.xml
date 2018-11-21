@@ -1,41 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11-14-2018 10:47:02 AM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-21-2018 02:24:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="cinemas" name="Persistencia.Sucursales" optimistic-lock="version" table="sucursales">
-    <id name="idSucursal" type="java.lang.Integer">
-      <column name="id_sucursal"/>
-      <generator class="identity"/>
-    </id>
-    <many-to-one class="Persistencia.Empresas" fetch="select" name="empresas">
-      <column name="id_empresa" not-null="true"/>
-    </many-to-one>
-    <property name="nombreSucursal" type="string">
-      <column length="100" name="nombre_sucursal"/>
-    </property>
-    <property name="direccionSucursal" type="string">
-      <column length="100" name="direccion_sucursal"/>
-    </property>
-    <property name="telefono" type="string">
-      <column length="12" name="telefono"/>
-    </property>
-    <property name="latitud" type="string">
-      <column length="20" name="latitud"/>
-    </property>
-    <property name="longitud" type="string">
-      <column length="20" name="longitud"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="salases" table="salas">
-      <key>
-        <column name="id_sucursal" not-null="true"/>
-      </key>
-      <one-to-many class="Persistencia.Salas"/>
-    </set>
-    <set fetch="select" inverse="true" lazy="true" name="precioses" table="precios">
-      <key>
-        <column name="id_sucursal" not-null="true"/>
-      </key>
-      <one-to-many class="Persistencia.Precios"/>
-    </set>
-  </class>
+    <class name="Persistencia.Sucursales" table="sucursales" catalog="cinemas" optimistic-lock="version">
+        <id name="idSucursal" type="java.lang.Integer">
+            <column name="id_sucursal" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empresas" class="Persistencia.Empresas" fetch="select">
+            <column name="id_empresa" not-null="true" />
+        </many-to-one>
+        <property name="nombreSucursal" type="string">
+            <column name="nombre_sucursal" length="100" />
+        </property>
+        <property name="direccionSucursal" type="string">
+            <column name="direccion_sucursal" length="100" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="12" />
+        </property>
+        <set name="salases" table="salas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_sucursal" not-null="true" />
+            </key>
+            <one-to-many class="Persistencia.Salas" />
+        </set>
+        <set name="precioses" table="precios" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_sucursal" not-null="true" />
+            </key>
+            <one-to-many class="Persistencia.Precios" />
+        </set>
+    </class>
 </hibernate-mapping>
