@@ -68,9 +68,7 @@
 
         <!-- Menu Toggle Script -->
         <script>
-
             $("#wrapper").toggleClass("toggled");
-
         </script>
 
     </body>

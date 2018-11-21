@@ -14,10 +14,12 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/simple-sidebar.css" rel="stylesheet">
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Javascript para máscaras -->
-        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-        <script type="text/javascript" src="js/documentController.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="vendor/jquery/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="documentController.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -86,21 +88,15 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Menu Toggle Script -->
     <script>
-
         $("#wrapper").toggleClass("toggled");
         
         $("#generosTable").on("dblclick", ".infoBtn",function(){
-        var data = $(this).data("info").split(";;");
-        $("#idGenero").val(data[0]);
-        $("#genero").val(data[1]);
-    });
-
+            var data = $(this).data("info").split(";;");
+            $("#idGenero").val(data[0]);
+            $("#genero").val(data[1]);
+        });
     </script>
 
 </body>
