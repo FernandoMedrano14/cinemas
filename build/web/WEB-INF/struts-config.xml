@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="ClasificacionesActionForm" type="Actionform.ClasificacionesActionForm"/>
         <form-bean name="VentasActionForm" type="Actionform.VentasActionForm"/>
         
         <form-bean name="UsuariosActionForm" type="Actionform.UsuariosActionForm"/>
@@ -49,6 +50,16 @@
         <forward name="consultarempresas" path="/system/empresas.jsp"></forward>
         <forward name="modificarempresas" path="/system/empresas.jsp"></forward>
         <forward name="confirmacio" path="empresas.jsp"></forward>
+        
+                            <!-- Forward Clasificaciones -->
+        <forward name="confirmarclasificacion" path="/system/clasificaciones.jsp"></forward>                    
+        <forward name="errorclasificacion" path="/system/clasificaciones.jsp"></forward>
+        <forward name="consultaridclasificacion" path="/system/clasificaciones.jsp"></forward>
+        <forward name="guardarclasificaciones" path="/system/clasificaciones.jsp"></forward>
+        <forward name="eliminarclasificaciones" path="/system/clasificaciones.jsp"></forward>
+        <forward name="consultarclasificaciones" path="/system/clasificaciones.jsp"></forward>
+        <forward name="modificarclasificaciones" path="/system/clasificaciones.jsp"></forward>
+        <forward name="confirmacion" path="empresas.jsp"></forward>
         
                             <!-- Forward Funciones -->
         <forward name="confirmarfuncion" path="/system/funciones.jsp"></forward>                    
@@ -143,6 +154,8 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/" name="VentasActionForm" path="/system/funciones" scope="session" type="Action.ClasificacionesAction"/>
+        <action input="/" name="VentasActionForm" path="/system/tiposusuarios" scope="session" type="Action.TiposUsuarioAction"/>
         <action input="/" name="VentasActionForm" path="/system/ventas" scope="session" type="Action.VentasAction"/>
         <action input="/" name="UsuariosActionForm" path="/system/usuarios" scope="session" type="Action.UsuariosAction"/>
         <action input="/" name="SucursalesActionForm" path="/system/sucursales" scope="session" type="Action.SucursalesAction"/>
@@ -154,6 +167,7 @@
         <action name="FuncionesActionForm" path="/system/funciones" scope="session" type="Action.ActionFunciones"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
         <action name="EmpresasActionForm" path="/system/empresa" scope="request" type="Action.ActionEmpresas"/>
+        <action name="ClasificacionesActionForm" path="/system/clasificaciones" scope="request" type="Action.ClasificacionesAction"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
@@ -184,7 +198,6 @@
     Specify if xml parser should validate the Tiles configuration file.
     true : validate. DTD should be specified in file header (default)
     false : no validation
-
     Paths found in Tiles definitions are relative to the main context.
     -->
     <plug-in className="org.apache.struts.tiles.TilesPlugin" >
