@@ -8,8 +8,10 @@ package Action;
 import Actionform.HorariosActionForm;
 import Mantenimiento.HorariosMantenimiento;
 import Mantenimiento.SalasMantenimiento;
+import Mantenimiento.SucursalesMantenimiento;
 import Persistencia.Horarios;
 import Persistencia.Salas;
+import Persistencia.Sucursales;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -49,12 +51,17 @@ public class HorariosAction extends org.apache.struts.action.Action {
             //lista de salas
             SalasMantenimiento sa = new SalasMantenimiento();
             List<Salas> listaSala = sa.consultartodo();
-            
+            //lista sucursales
+            SucursalesMantenimiento su = new SucursalesMantenimiento();
+            List<Sucursales> listaSucursal = su.consultartodo();
             //se cargan las listas
             bean.setListaHorario(listaHorario);
             bean.setListaSala(listaSala);
+            //falta cargar la lista de sucursales
             return mapping.findForward(CONSULTAR);
         }
+        
+        
         
         if(action.equals("Nueva")){
             String advertencia = "";

@@ -5,6 +5,9 @@
  */
 package Actionform;
 
+import Persistencia.Clasificaciones;
+import Persistencia.Empresas;
+import Persistencia.Generos;
 import Persistencia.Peliculas;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +25,7 @@ public class PeliculasActionForm extends org.apache.struts.action.ActionForm {
     private Integer idPelicula;
     private Integer idEmpresa;
     private Integer idGenero;
+    private Integer idClasificaciones;
     private String titulo;
     private String duracion;
     private String actores;
@@ -32,7 +36,10 @@ public class PeliculasActionForm extends org.apache.struts.action.ActionForm {
     private String action;
     private String error;
     private List<Peliculas> listaPeliculas;
-
+    private List<Empresas> listaEmpresas;
+    private List<Generos> listaGeneros;
+    private List<Clasificaciones> listaClasificaciones;
+    
     public Integer getIdPelicula() {
         return idPelicula;
     }
@@ -57,6 +64,14 @@ public class PeliculasActionForm extends org.apache.struts.action.ActionForm {
         this.idGenero = idGenero;
     }
 
+    public Integer getIdClasificaciones() {
+        return idClasificaciones;
+    }
+
+    public void setIdClasificaciones(Integer idClasificaciones) {
+        this.idClasificaciones = idClasificaciones;
+    }
+    
     public String getTitulo() {
         return titulo;
     }
@@ -135,6 +150,30 @@ public class PeliculasActionForm extends org.apache.struts.action.ActionForm {
 
     public void setListaPeliculas(List<Peliculas> listaPeliculas) {
         this.listaPeliculas = listaPeliculas;
+    }
+
+    public List<Empresas> getListaEmpresas() {
+        return listaEmpresas;
+    }
+
+    public void setListaEmpresas(List<Empresas> listaEmpresas) {
+        this.listaEmpresas = listaEmpresas;
+    }
+
+    public List<Generos> getListaGeneros() {
+        return listaGeneros;
+    }
+
+    public void setListaGeneros(List<Generos> listaGeneros) {
+        this.listaGeneros = listaGeneros;
+    }
+
+    public List<Clasificaciones> getListaClasificaciones() {
+        return listaClasificaciones;
+    }
+
+    public void setListaClasificaciones(List<Clasificaciones> listaClasificaciones) {
+        this.listaClasificaciones = listaClasificaciones;
     }
     
 }
