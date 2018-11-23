@@ -63,7 +63,6 @@ public class EmpresasMantenimiento {
     public int eliminar(int idEmpresa) {
         session = factory.openSession();
         int flag = 0;
-
         try {
             session.beginTransaction();
             emp = (Empresas) session.get(Empresas.class, idEmpresa);
@@ -74,6 +73,7 @@ public class EmpresasMantenimiento {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
                 flag = 0;
+                System.out.println("Error al eliminar empresa: "+e);
             }
 
         } finally {

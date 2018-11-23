@@ -36,6 +36,7 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
         String numeroRegistro = formEmp.getNumeroRegistro();
         String giro = formEmp.getGiro();
         String action = formEmp.getAction();
+        String mensaje;
 
         if (action.equals("Iniciar")) {
             EmpresasMantenimiento emp = new EmpresasMantenimiento();
@@ -45,43 +46,8 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
         }
 
         if (action.equals("Nueva")) {
-            String advertencia = "";
-
-            if (idEmpresa != 0) {
-                advertencia = "Este usuario ya existe";
-            }
-            if (nombre == null || nombre.equals("")) {
-                advertencia = "*Es necesario agragar el nombre<br>";
-            }
-
-            if (direccion == null || direccion.equals("")) {
-                advertencia = "*se necesita ingresar la direccion<br>";
-            }
-
-            if (telefono == null || telefono.equals("")) {
-                advertencia = "*se necesita ingresar el telefono<br>";
-            }
-
-            if (nit == null || nit.equals("")) {
-                advertencia = "*se necesita ingresar el numero de Nit<br>";
-            }
-
-            if (numeroRegistro == null || numeroRegistro.equals("")) {
-                advertencia = "*se necesita ingresar el numero de Registro<br>";
-            }
-
-            if (giro == null || giro.equals("")) {
-                advertencia = "*se necesita ingresar el numero de Registro<br>";
-            }
-            System.out.println(advertencia);
-            if (!advertencia.equals("")) {
-                formEmp.setError("<span style='color:red'> Complete los campos sin rellenar" + "<br>" + advertencia + "</span>");
-                return mapping.findForward(ERROR);
-
-            }
-
             Empresas e = new Empresas();
-            e.setIdEmpresa(idEmpresa);
+            e.setIdEmpresa(0);
             e.setNombre(nombre);
             e.setDireccion(direccion);
             e.setTelefono(telefono);
@@ -100,9 +66,12 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
                 formEmp.setGiro("");
                 List<Empresas> listaEmpresa = emp.consultartodo();
                 formEmp.setListaEmpresa(listaEmpresa);
+                mensaje = "Éxito al guardar";
+                request.setAttribute("mensaje", mensaje);
                 return mapping.findForward(GUARDAR);
             } else {
-                formEmp.setError("<div class='alert alert-danger'>Ocurrio un error al crear la Empresa.</div>");
+                mensaje = "Ocurrió un error al tratar de guardar los datos";
+                request.setAttribute("error", mensaje);
                 return mapping.findForward(ERROR);
             }
         }
@@ -110,8 +79,9 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
         if (action.equals("consultar")) {
             EmpresasMantenimiento emp = new EmpresasMantenimiento();
             List<Empresas> listaEmpresa = emp.consultartodo();
-            if (listaEmpresa == null) {
-                formEmp.setError("<span style='color:red'>No se encontraron registros" + "<br></span>");
+            if (listaEmpresa.isEmpty()) {
+                mensaje = "No hay datos para mostrar";
+                request.setAttribute("info", mensaje);
                 return mapping.findForward(ERROR);
             } else {
                 formEmp.setListaEmpresa(listaEmpresa);
@@ -120,8 +90,6 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
         }
 
         if (action.equals("Modificar")) {
-            System.out.println("Entra el accion");
-            String advertencia = "";
             Empresas e = new Empresas();
             e.setIdEmpresa(idEmpresa);
             e.setNombre(nombre);
@@ -140,23 +108,26 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
                 formEmp.setNumeroRegistro("");
                 formEmp.setGiro("");
 
-                advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> la empresa ha sido modificado.\n</div>");
-                request.setAttribute("advertencia", advertencia);
+                mensaje = "Éxito al modificar";
+                request.setAttribute("mensaje", mensaje);
                 List<Empresas> listaEmpresa = emp.consultartodo();
                 formEmp.setListaEmpresa(listaEmpresa);
                 return mapping.findForward(MODIFICAR);
             } else {
-                formEmp.setError("<div class='alert alert-danger'>Ocurrio un error al modificar la Empresa.</div>");
+                mensaje = "Ocurrió un error al modificar";
+                request.setAttribute("error", mensaje);
                 return mapping.findForward(ERROR);
             }
         }
 
         if (action.equals("Eliminar")) {
-            String advertencia = "";
-            
-            EmpresasMantenimiento emp = new EmpresasMantenimiento();
+            EmpresasMantenimiento emp = new EmpresasMantenimiento();            
             if (emp.eliminar(idEmpresa) == 0) {
-                formEmp.setError("<div class='alert alert-danger'>Ocurrio un error al eliminar la Empresa.</div>");
+                List<Empresas> listaEmpresa = emp.consultartodo();
+                formEmp.setListaEmpresa(listaEmpresa);
+                formEmp.setIdEmpresa(0);
+                mensaje = "Ocurrió un error al eliminar";
+                request.setAttribute("error", mensaje);
                 return mapping.findForward(ERROR);
             } else {
                 formEmp.setIdEmpresa(0);
@@ -169,6 +140,8 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
                 List<Empresas> listaEmpresa = emp.consultartodo();
                 formEmp.setListaEmpresa(listaEmpresa);
                 formEmp.setIdEmpresa(idEmpresa);
+                mensaje = "Éxito al eliminar";
+                request.setAttribute("mensaje", mensaje);
                 return mapping.findForward(ELIMINAR);
             }
             

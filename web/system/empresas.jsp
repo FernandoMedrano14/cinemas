@@ -20,7 +20,11 @@
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Javascript para máscaras -->
         <script type="text/javascript" src="vendor/jquery/jquery.mask.min.js"></script>
-        <script type="text/javascript" src="documentController.js"></script>
+        <script type="text/javascript" src="systemJS/documentController.js"></script>
+        <script type="text/javascript" src="systemJS/empresasJS.js"></script>
+        <!-- Javascript para Alerts -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -47,37 +51,32 @@
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <logic:notEmpty name="EmpresasActionForm" property="listaEmpresa">
                                     <logic:iterate id="ver" name="EmpresasActionForm" property="listaEmpresa">
-
-                                        <html:form action="/system/empresa">
-                                            
+                                        <html:form action="/system/empresa"> 
                                             <tr  style="cursor: pointer;" id="registro" class="infoBtn" 
                                                 data-info="${ver.idEmpresa};;${ver.nombre};;${ver.direccion};;${ver.telefono};;${ver.nit};;${ver.numeroRegistro};;${ver.giro}">
-                                                
                                                 <th scope="row"><bean:write name="ver" property="nombre"/></th>
                                                 <td><bean:write name="ver" property="direccion" /></td>
                                                 <td><bean:write name="ver" property="telefono" /></td>
                                                 <td><bean:write name="ver" property="nit" /></td>
                                             </tr>
-
                                         </html:form>                                    
-                                </logic:iterate>
-                            </logic:notEmpty>
+                                    </logic:iterate>
+                                </logic:notEmpty>
                             </tbody>
                         </table>
                     </div>
                     <!--Formulario para ingresar y consultar datos-->
                     <div class="col-md-4 border border-dark rounded" style="background-color: white">
-                        <html:form action="/system/empresa">
+                        <html:form action="/system/empresa" styleId="formEmpresas">
                             </br>
                             <div class="form-group row" hidden="true">
                                 <label class="col-sm-3 col-form-label">ID:</label>
                                 <div class="col-sm-9">
                                     <html:text styleId="idEmpresa" styleClass="form-control" property="idEmpresa" readonly="true"></html:text>
-                                    </div>
                                 </div>
+                            </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nombre:</label>
                                     <div class="col-sm-9">
@@ -116,9 +115,9 @@
                                 </div>
                                 <div class="text-center">
                                 <br>
-                                <html:submit styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
-                                <html:submit styleClass="btn btn-secondary" property="action" value="Modificar"></html:submit>
-                                <html:submit styleClass="btn btn-danger" property="action" value="Eliminar"></html:submit>
+                                <html:submit styleId="nueva" styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
+                                <html:submit styleId="modificar" styleClass="btn btn-secondary" property="action" value="Modificar"></html:submit>
+                                <html:submit styleId="eliminar" styleClass="btn btn-danger" property="action" value="Eliminar"></html:submit>
                                 </div>
                         </html:form>
                     </div>
@@ -128,6 +127,10 @@
         <!-- /#page-content-wrapper -->
     </div>
     <!-- /#wrapper -->
+    <div id="error" hidden="hidden">${error}</div>
+    <div id="mensaje" hidden="hidden">${mensaje}</div>
+    <div id="info" hidden="hidden">${info}</div>
+    <div id="warning" hidden="hidden">${warning}</div>
 
     <!-- Menu Toggle Script -->
     <script>
@@ -143,11 +146,17 @@
         $("#nit").val(data[4]);
         $("#numeroRegistro").val(data[5]);
         $("#giro").val(data[6]);
+        
+        $("#nombre").removeClass("is-invalid");
+        $("#direccion").removeClass("is-invalid");
+        $("#telefono").removeClass("is-invalid");
+        $("#nit").removeClass("is-invalid");
+        $("#numeroRegistro").removeClass("is-invalid");
+        $("#giro").removeClass("is-invalid");
     });
     
     </script>
     
-
 </body>
 
 </html:html>
