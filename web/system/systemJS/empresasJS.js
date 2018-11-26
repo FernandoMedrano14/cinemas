@@ -157,13 +157,14 @@ $(document).ready(function () {
         e.preventDefault();
 
         var idEmpresa = $("#keyDelete").val();
+        $("#idEmpresa").val("");
+        $("#keyDelete").val("");
 
         if (idEmpresa == "") {
             $("#error").html("No se puede eliminar un Registro que no exista");
             error();
         } else {
             location.href = "empresa.do?action=Eliminar&idEmpresa=" + idEmpresa;
-            $("#idEmpresa").val("");
         }
     });
 

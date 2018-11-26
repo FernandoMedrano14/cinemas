@@ -123,12 +123,10 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
             if (emp.eliminar(idEmpresa) == 0) {
                 List<Empresas> listaEmpresa = emp.consultartodo();
                 formEmp.setListaEmpresa(listaEmpresa);
-                formEmp.setIdEmpresa(0);
                 mensaje = "Ocurrió un error al eliminar";
                 request.setAttribute("error", mensaje);
                 return mapping.findForward(ERROR);
             } else {
-                formEmp.setIdEmpresa(0);
                 formEmp.setNombre("");
                 formEmp.setDireccion("");
                 formEmp.setTelefono("");
