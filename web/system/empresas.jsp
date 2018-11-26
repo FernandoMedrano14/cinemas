@@ -43,7 +43,7 @@
                         <table class="table table-hover border border-dark" id="empresasTable" style="background-color: white">
                             <thead class="thead-dark">
                                 <tr>
-                                    
+
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Dirección</th>
                                     <th scope="col">Telefono</th>
@@ -55,7 +55,7 @@
                                     <logic:iterate id="ver" name="EmpresasActionForm" property="listaEmpresa">
                                         <html:form action="/system/empresa"> 
                                             <tr  style="cursor: pointer;" id="registro" class="infoBtn" 
-                                                data-info="${ver.idEmpresa};;${ver.nombre};;${ver.direccion};;${ver.telefono};;${ver.nit};;${ver.numeroRegistro};;${ver.giro}">
+                                                 data-info="${ver.idEmpresa};;${ver.nombre};;${ver.direccion};;${ver.telefono};;${ver.nit};;${ver.numeroRegistro};;${ver.giro}">
                                                 <th scope="row"><bean:write name="ver" property="nombre"/></th>
                                                 <td><bean:write name="ver" property="direccion" /></td>
                                                 <td><bean:write name="ver" property="telefono" /></td>
@@ -75,8 +75,8 @@
                                 <label class="col-sm-3 col-form-label">ID:</label>
                                 <div class="col-sm-9">
                                     <html:text styleId="idEmpresa" styleClass="form-control" property="idEmpresa" readonly="true"></html:text>
+                                    </div>
                                 </div>
-                            </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nombre:</label>
                                     <div class="col-sm-9">
@@ -114,14 +114,38 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                <br>
+                                    <br>
                                 <html:submit styleId="nueva" styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
                                 <html:submit styleId="modificar" styleClass="btn btn-secondary" property="action" value="Modificar"></html:submit>
-                                <html:submit styleId="eliminar" styleClass="btn btn-danger" property="action" value="Eliminar"></html:submit>
+                                <submit id="btnEliminar" class="btn btn-danger">Eliminar</submit>
                                 </div>
                         </html:form>
                     </div>
-                </div>        
+                </div>
+
+                <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+                    <form action="cliente" method="post">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Eliminar</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="hidden" class="form-control" id="keyDelete">
+                                    <p>¿Está seguro que desea eliminar este elemento?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <html:submit styleId="eliminar" styleClass="btn btn-danger" property="action" value="Eliminar"></html:submit>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -135,28 +159,28 @@
     <!-- Menu Toggle Script -->
     <script>
 
-    $("#wrapper").toggleClass("toggled");
-    
-    $("#empresasTable").on("dblclick", ".infoBtn",function(){
-        var data = $(this).data("info").split(";;");
-        $("#idEmpresa").val(data[0]);
-        $("#nombre").val(data[1]);
-        $("#direccion").val(data[2]);
-        $("#telefono").val(data[3]);
-        $("#nit").val(data[4]);
-        $("#numeroRegistro").val(data[5]);
-        $("#giro").val(data[6]);
-        
-        $("#nombre").removeClass("is-invalid");
-        $("#direccion").removeClass("is-invalid");
-        $("#telefono").removeClass("is-invalid");
-        $("#nit").removeClass("is-invalid");
-        $("#numeroRegistro").removeClass("is-invalid");
-        $("#giro").removeClass("is-invalid");
-    });
-    
+        $("#wrapper").toggleClass("toggled");
+
+        $("#empresasTable").on("dblclick", ".infoBtn", function () {
+            var data = $(this).data("info").split(";;");
+            $("#idEmpresa").val(data[0]);
+            $("#nombre").val(data[1]);
+            $("#direccion").val(data[2]);
+            $("#telefono").val(data[3]);
+            $("#nit").val(data[4]);
+            $("#numeroRegistro").val(data[5]);
+            $("#giro").val(data[6]);
+
+            $("#nombre").removeClass("is-invalid");
+            $("#direccion").removeClass("is-invalid");
+            $("#telefono").removeClass("is-invalid");
+            $("#nit").removeClass("is-invalid");
+            $("#numeroRegistro").removeClass("is-invalid");
+            $("#giro").removeClass("is-invalid");
+        });
+
     </script>
-    
+
 </body>
 
 </html:html>

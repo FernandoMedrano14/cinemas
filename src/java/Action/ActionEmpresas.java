@@ -57,7 +57,6 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
 
             EmpresasMantenimiento emp = new EmpresasMantenimiento();
             if (emp.guardarEmpresa(e)) {
-                formEmp.setError("<div class='alert alert-success'>Su Empresa ha sido registrada</div>");
                 formEmp.setNombre("");
                 formEmp.setDireccion("");
                 formEmp.setTelefono("");
@@ -100,7 +99,6 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
             e.setGiro(giro);
             EmpresasMantenimiento emp = new EmpresasMantenimiento();
             if (emp.modificarEmpresa(e)) {
-                formEmp.setIdEmpresa(0);
                 formEmp.setNombre("");
                 formEmp.setDireccion("");
                 formEmp.setTelefono("");

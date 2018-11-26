@@ -19,6 +19,13 @@ $(document).ready(function () {
             $("#nit").val("");
             $("#numeroRegistro").val("");
             $("#giro").val("");
+
+            $("#nombre").removeClass("is-invalid");
+            $("#direccion").removeClass("is-invalid");
+            $("#telefono").removeClass("is-invalid");
+            $("#nit").removeClass("is-invalid");
+            $("#numeroRegistro").removeClass("is-invalid");
+            $("#giro").removeClass("is-invalid");
         } else {
             var isValid = true;
 
@@ -134,74 +141,29 @@ $(document).ready(function () {
             if (isValid) {
                 location.href = "empresa.do?action=Modificar&idEmpresa=" + idEmpresa + "&nombre=" + nombre + "&direccion=" + direccion + "&telefono=" + telefono
                         + "&nit=" + nit + "&numeroRegistro=" + numeroRegistro + "&giro=" + giro;
+                $("#idEmpresa").val("");
             }
 
         }
     });
-    
+
+    $("#btnEliminar").click(function (e) {
+        var idEmpresa = $("#idEmpresa").val();
+        $("#keyDelete").val(idEmpresa);
+        $("#deleteModal").modal("show");
+    });
+
     $("#eliminar").click(function (e) {
         e.preventDefault();
 
-        var idEmpresa = $("#idEmpresa").val();
-        var nombre = $("#nombre").val();
-        var direccion = $("#direccion").val();
-        var telefono = $("#telefono").val();
-        var nit = $("#nit").val();
-        var numeroRegistro = $("#numeroRegistro").val();
-        var giro = $("#giro").val();
+        var idEmpresa = $("#keyDelete").val();
 
         if (idEmpresa == "") {
             $("#error").html("No se puede eliminar un Registro que no exista");
             error();
         } else {
-            var isValid = true;
-
-            if (nombre == "") {
-                $("#nombre").addClass("is-invalid");
-                isValid = false;
-            } else {
-                $("#nombre").removeClass("is-invalid");
-            }
-
-            if (direccion == "") {
-                $("#direccion").addClass("is-invalid");
-                isValid = false;
-            } else {
-                $("#direccion").removeClass("is-invalid");
-            }
-
-            if (telefono == "") {
-                $("#telefono").addClass("is-invalid");
-                isValid = false;
-            } else {
-                $("#telefono").removeClass("is-invalid");
-            }
-
-            if (nit == "") {
-                $("#nit").addClass("is-invalid");
-                isValid = false;
-            } else {
-                $("#nit").removeClass("is-invalid");
-            }
-
-            if (numeroRegistro == "") {
-                $("#numeroRegistro").addClass("is-invalid");
-                isValid = false;
-            } else {
-                $("#numeroRegistro").removeClass("is-invalid");
-            }
-
-            if (giro == "") {
-                $("#giro").addClass("is-invalid");
-                isValid = false;
-            } else {
-                $("#giro").removeClass("is-invalid");
-            }
-
-            if (isValid) {
-                location.href = "empresa.do?action=Eliminar&idEmpresa=" + idEmpresa;
-            }
-
+            location.href = "empresa.do?action=Eliminar&idEmpresa=" + idEmpresa;
+            $("#idEmpresa").val("");
         }
     });
 
