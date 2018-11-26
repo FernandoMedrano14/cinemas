@@ -5,6 +5,10 @@
  */
 package Action;
 
+import Actionform.UsuariosActionForm;
+import Mantenimiento.UsuariosMantenimiento;
+import Persistencia.Usuarios;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -22,7 +26,7 @@ public class UsuariosAction extends org.apache.struts.action.Action {
     private static final String CONFIRMARID = "consultaridusuario";
     private static final String GUARDAR = "guardar";
     private static final String ELIMINAR = "eliminar";
-    private static final String CONSULTAR = "consultarusuario";
+    private static final String CONSULTAR = "consultarUsuario";
     private static final String MODIFICAR = "modificar";
     private static final String MOSTRAR = "confirmacion";
     
@@ -32,6 +36,18 @@ public class UsuariosAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        
+        UsuariosActionForm bean = (UsuariosActionForm) form;
+        
+        if(bean.getAction().equals("iniciar")){
+            UsuariosMantenimiento manto = new UsuariosMantenimiento();
+            List<Usuarios> listausuarios = manto.consultartodo();
+            bean.setListaUsuario(listausuarios);
+            for(Usuarios u : listausuarios){
+                System.out.println(u.getNombres());
+            }
+            return mapping.findForward(CONSULTAR);
+        }
         
         return mapping.findForward(CONFIRMACION);
     }

@@ -45,24 +45,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td scope="row">Nombre 1</td>
-                                    <td>Correo 1</td>
-                                    <td>Username 1</td>
-                                    <td>Administrador</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Nombre 2</td>
-                                    <td>Correo 2</td>
-                                    <td>Username 2</td>
-                                    <td>Cajero</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Nombre 3</td>
-                                    <td>Correo 3</td>
-                                    <td>Username 1</td>
-                                    <td>Cajero</td>
-                                </tr>
+                                <logic:notEmpty name="UsuariosActionForm" property="listaUsuario">
+                                    <logic:iterate id="ver" name="UsuariosActionForm" property="listaUsuario">
+                                        <html:form action="/system/empresa"> 
+                                            <tr  style="cursor: pointer;" id="registro" class="infoBtn" 
+                                                 data-info="${ver.idUsuario};;${ver.tiposUsuarios.tipo};;${ver.empresas.nombre};;${ver.nickname};;${ver.nombres};;${ver.apellidos};;${ver.correo};;${ver.contrasenia}">
+                                                <th scope="row"><bean:write name="ver" property="nombres"/></th>
+                                                <td><bean:write name="ver" property="correo" /></td>
+                                                <td><bean:write name="ver" property="nickname" /></td>
+                                                <td><bean:write name="ver" property="tiposUsuarios.tipo" /></td>
+                                            </tr>
+                                        </html:form>                               
+                                    </logic:iterate>
+                                </logic:notEmpty>                                
                             </tbody>
                         </table>
                     </div>
