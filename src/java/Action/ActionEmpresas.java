@@ -99,6 +99,7 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
             e.setGiro(giro);
             EmpresasMantenimiento emp = new EmpresasMantenimiento();
             if (emp.modificarEmpresa(e)) {
+                formEmp.setIdEmpresa(0);
                 formEmp.setNombre("");
                 formEmp.setDireccion("");
                 formEmp.setTelefono("");
@@ -112,6 +113,14 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
                 formEmp.setListaEmpresa(listaEmpresa);
                 return mapping.findForward(MODIFICAR);
             } else {
+                formEmp.setIdEmpresa(0);
+                formEmp.setNombre("");
+                formEmp.setDireccion("");
+                formEmp.setTelefono("");
+                formEmp.setNit("");
+                formEmp.setNumeroRegistro("");
+                formEmp.setGiro("");
+                
                 mensaje = "Ocurrió un error al modificar";
                 request.setAttribute("error", mensaje);
                 return mapping.findForward(ERROR);
@@ -122,11 +131,13 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
             EmpresasMantenimiento emp = new EmpresasMantenimiento();            
             if (emp.eliminar(idEmpresa) == 0) {
                 List<Empresas> listaEmpresa = emp.consultartodo();
+                formEmp.setIdEmpresa(0);
                 formEmp.setListaEmpresa(listaEmpresa);
                 mensaje = "Ocurrió un error al eliminar";
                 request.setAttribute("error", mensaje);
                 return mapping.findForward(ERROR);
             } else {
+                formEmp.setIdEmpresa(0);
                 formEmp.setNombre("");
                 formEmp.setDireccion("");
                 formEmp.setTelefono("");

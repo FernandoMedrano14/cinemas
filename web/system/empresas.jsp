@@ -134,7 +134,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <input type="text" class="form-control" id="keyDelete">
+                                    <input type="hidden" class="form-control" id="keyDelete">
                                     <p>¿Está seguro que desea eliminar este elemento?</p>
                                 </div>
                                 <div class="modal-footer">

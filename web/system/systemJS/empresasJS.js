@@ -90,7 +90,7 @@ $(document).ready(function () {
         var numeroRegistro = $("#numeroRegistro").val();
         var giro = $("#giro").val();
 
-        if (idEmpresa == "") {
+        if (idEmpresa == "" || idEmpresa == 0) {
             $("#error").html("No se puede modificar un Registro que no exista");
             error();
         } else {
@@ -147,7 +147,7 @@ $(document).ready(function () {
         }
     });
 
-    $("#btnEliminar").click(function (e) {
+    $("#btnEliminar").click(function () {
         var idEmpresa = $("#idEmpresa").val();
         $("#keyDelete").val(idEmpresa);
         $("#deleteModal").modal("show");
@@ -155,15 +155,15 @@ $(document).ready(function () {
 
     $("#eliminar").click(function (e) {
         e.preventDefault();
-
         var idEmpresa = $("#keyDelete").val();
-        $("#idEmpresa").val("");
-        $("#keyDelete").val("");
 
-        if (idEmpresa == "") {
+        if (idEmpresa == "" || idEmpresa == 0) {
             $("#error").html("No se puede eliminar un Registro que no exista");
+            $("#deleteModal").modal("hide");
             error();
         } else {
+            $("#idEmpresa").val("");
+            $("#keyDelete").val("");
             location.href = "empresa.do?action=Eliminar&idEmpresa=" + idEmpresa;
         }
     });
