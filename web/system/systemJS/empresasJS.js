@@ -1,5 +1,22 @@
 $(document).ready(function () {
 
+    $('#empresasTable').DataTable({
+        language: {"url": 'dataTables/datatable_es.json'},
+        columns: [
+            {"width": "20%"},
+            {"width": "60%"},
+            {"width": "10%"},
+            {"width": "20%"}
+        ],
+        columnDefs: [{
+            targets: [0, 1, 3],
+            className: 'dt-body-left'
+        }],
+        responsive: true,
+        "autoWidth": false,
+        searching: false,
+    });
+
     $("#nueva").click(function (e) {
         e.preventDefault();
 

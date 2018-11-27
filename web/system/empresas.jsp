@@ -25,6 +25,9 @@
         <!-- Javascript para Alerts -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+        <!-- Javascript para DataTables -->
+        <link rel="stylesheet" type="text/css" href="dataTables/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="dataTables/jquery.dataTables.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -135,10 +138,10 @@
                                 </div>
                                 <div class="modal-body">
                                     <input type="hidden" class="form-control" id="keyDelete">
-                                    <p>¿Está seguro que desea eliminar este elemento?</p>
+                                    <p>¿Está seguro que desea eliminar este Registro?</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <html:submit styleId="eliminar" styleClass="btn btn-danger" property="action" value="Eliminar"></html:submit>
+                                    <submit id="eliminar" class="btn btn-danger">Confirmar</submit>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                 </div>
                             </div>
