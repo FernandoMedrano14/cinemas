@@ -6,6 +6,7 @@
 package Actionform;
 
 import Persistencia.Precios;
+import Persistencia.Sucursales;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,6 +27,7 @@ public class PreciosActionForm extends org.apache.struts.action.ActionForm {
     private String action;
     private String error;
     private List<Precios> listaPrecios; 
+    private List<Sucursales> listaSucursales;
 
     public Integer getIdPrecio() {
         return idPrecio;
@@ -81,6 +83,14 @@ public class PreciosActionForm extends org.apache.struts.action.ActionForm {
 
     public void setListaPrecios(List<Precios> listaPrecios) {
         this.listaPrecios = listaPrecios;
+    }
+
+    public List<Sucursales> getListaSucursales() {
+        return listaSucursales;
+    }
+
+    public void setListaSucursales(List<Sucursales> listaSucursales) {
+        this.listaSucursales = listaSucursales;
     }
 
 }

@@ -123,7 +123,7 @@ public class PeliculasAction extends org.apache.struts.action.Action {
             p.setEstado(estado);
 
             if (pe.guardarPelicula(p)) {
-                bean.setError("<div class='alert alert-success'>La Funcion ha sido registrada</div>");
+                bean.setError("<div class='alert alert-success'>La Pelicula ha sido registrada</div>");
                 bean.setTitulo("");
                 p.setDuracion("");
                 p.setActores("");
