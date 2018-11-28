@@ -26,7 +26,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
         <!-- Javascript para DataTables -->
-        <link rel="stylesheet" type="text/css" href="dataTables/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css" href="dataTables/themes/jquery.dataTables.bootstrap4.css">
         <script type="text/javascript" charset="utf8" src="dataTables/jquery.dataTables.js"></script>
     </head>
     <body style="background-color: #E2fff0">
