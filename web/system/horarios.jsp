@@ -20,6 +20,10 @@
         <!-- Javascript para máscaras -->
         <script type="text/javascript" src="vendor/jquery/jquery.mask.min.js"></script>
         <script type="text/javascript" src="documentController.js"></script>
+        <script type="text/javascript" src="systemJS/horariosJS.js"></script>
+        <!-- Javascript para Alerts -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -118,7 +122,7 @@
                                 <label class="col-sm-4 col-form-label">Horario desde:</label>
                                 <div class="col-sm-7">
                                     <select class="custom-select" size="1">
-                                        <option selected>Selecciona una hora</option>
+                                        <option selected value="null">Selecciona una hora</option>
                                         <option value="11">11:00am</option>
                                         <option value="12">12:00m</option>
                                         <option value="13">01:00pm</option>

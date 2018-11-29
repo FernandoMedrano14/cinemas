@@ -20,6 +20,10 @@
         <!-- Javascript para máscaras -->
         <script type="text/javascript" src="vendor/jquery/jquery.mask.min.js"></script>
         <script type="text/javascript" src="documentController.js"></script>
+        <script type="text/javascript" src="systemJS/clasificacionesJS.js"></script>
+        <!-- Javascript para Alerts -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
