@@ -5,6 +5,8 @@
  */
 package Actionform;
 
+import Persistencia.Empresas;
+import Persistencia.TiposUsuarios;
 import Persistencia.Usuarios;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +32,8 @@ public class UsuariosActionForm extends org.apache.struts.action.ActionForm {
     private String action;
     private String error;
     private List<Usuarios> listaUsuario;
+    private List<TiposUsuarios> listaTipoUsuario;
+    private List<Empresas> listaEmpresa;
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -117,6 +121,22 @@ public class UsuariosActionForm extends org.apache.struts.action.ActionForm {
 
     public void setListaUsuario(List<Usuarios> listaUsuario) {
         this.listaUsuario = listaUsuario;
+    }
+
+    public List<TiposUsuarios> getListaTipoUsuario() {
+        return listaTipoUsuario;
+    }
+
+    public void setListaTipoUsuario(List<TiposUsuarios> listaTipoUsuario) {
+        this.listaTipoUsuario = listaTipoUsuario;
+    }
+
+    public List<Empresas> getListaEmpresa() {
+        return listaEmpresa;
+    }
+
+    public void setListaEmpresa(List<Empresas> listaEmpresa) {
+        this.listaEmpresa = listaEmpresa;
     }
     
 }
