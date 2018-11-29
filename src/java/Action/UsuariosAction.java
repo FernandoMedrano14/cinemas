@@ -6,7 +6,9 @@
 package Action;
 
 import Actionform.UsuariosActionForm;
+import Mantenimiento.TiposUsuariosMantenimiento;
 import Mantenimiento.UsuariosMantenimiento;
+import Persistencia.TiposUsuarios;
 import Persistencia.Usuarios;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -43,9 +45,9 @@ public class UsuariosAction extends org.apache.struts.action.Action {
             UsuariosMantenimiento manto = new UsuariosMantenimiento();
             List<Usuarios> listausuarios = manto.consultartodo();
             bean.setListaUsuario(listausuarios);
-            for(Usuarios u : listausuarios){
-                System.out.println(u.getNombres());
-            }
+            TiposUsuariosMantenimiento mantoTiposUusarios = new TiposUsuariosMantenimiento();
+            List<TiposUsuarios> listaTiposUsuarios = mantoTiposUusarios.consultartodo();
+            bean.setListaTiposUsuarios(listaTiposUsuarios);
             return mapping.findForward(CONSULTAR);
         }
         

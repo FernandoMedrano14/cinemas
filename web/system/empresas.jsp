@@ -7,27 +7,7 @@
 
 <html:html lang="true">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Cinemas</title>
-        <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom styles for this template -->
-        <link href="css/simple-sidebar.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- Javascript para máscaras -->
-        <script type="text/javascript" src="vendor/jquery/jquery.mask.min.js"></script>
-        <script type="text/javascript" src="systemJS/documentController.js"></script>
-        <script type="text/javascript" src="systemJS/empresasJS.js"></script>
-        <!-- Javascript para Alerts -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
-        <!-- Javascript para DataTables -->
-        <link rel="stylesheet" type="text/css" href="dataTables/themes/jquery.dataTables.bootstrap4.css">
-        <script type="text/javascript" charset="utf8" src="dataTables/jquery.dataTables.js"></script>
+        <%@include file="./ext/head.html" %>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -46,7 +26,6 @@
                         <table class="table table-hover border border-dark" id="empresasTable" style="background-color: white">
                             <thead class="thead-dark">
                                 <tr>
-
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Dirección</th>
                                     <th scope="col">Telefono</th>
