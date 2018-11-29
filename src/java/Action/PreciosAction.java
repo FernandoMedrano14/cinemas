@@ -260,7 +260,7 @@ public class PreciosAction extends org.apache.struts.action.Action {
             request.getSession().setAttribute("listaSucursales", listaSucursales);
             
             PreciosMantenimiento pre = new PreciosMantenimiento();
-            Precios pr = pre.consultarPrecio(idPrecio);
+            Precios pr = pre.consultarPrecio(idRecibido);
             
             bean.setIdPrecio(idPrecio);
             bean.setIdSucursal(pr.getSucursales().getIdSucursal());
