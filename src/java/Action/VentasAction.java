@@ -5,6 +5,7 @@
  */
 package Action;
 
+import Actionform.VentasActionForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -29,8 +30,22 @@ public class VentasAction extends org.apache.struts.action.Action {
     
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+            HttpServletRequest request, HttpServletResponse response){
+        
+        VentasActionForm bean = (VentasActionForm) form;
+        int idVenta = bean.getIdVenta();
+        int idFuncion = bean.getIdFuncion();
+        String fechaVenta = bean.getFechaVenta();
+        String nombreCliente = bean.getNombreCliente();
+        int cantidad = bean.getCantidad();
+        String dui = bean.getDui();
+        double total = bean.getTotal();
+        String estado = bean.getEstado();
+        String action = bean.getAction();
+        
+        if(action.equals("Iniciar")){
+            
+        }
         
         return mapping.findForward(CONFIRMACION);
     }

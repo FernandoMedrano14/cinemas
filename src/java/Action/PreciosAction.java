@@ -48,7 +48,7 @@ public class PreciosAction extends org.apache.struts.action.Action {
             //se carga la lista de Sucursales
             SucursalesMantenimiento su = new SucursalesMantenimiento();
             List<Sucursales> listaSucursales = su.consultartodo();
-            //sec arga la lista de precios
+            //se carga la lista de precios
             PreciosMantenimiento pre = new PreciosMantenimiento();
             List<Precios> listaPrecios = pre.consultartodo();
 
@@ -65,7 +65,7 @@ public class PreciosAction extends org.apache.struts.action.Action {
             String advertencia = "";
 
             if (descripcion == null || descripcion.equals("")) {
-                advertencia = "*se necesita ingresar el nombre del Titulo<br>";
+                advertencia = "*se necesita ingresar la descripcion del precio<br>";
             }
 
             if (!advertencia.equals("")) {
@@ -83,7 +83,7 @@ public class PreciosAction extends org.apache.struts.action.Action {
             pr.setPrecio(precio);
             pr.setDescripcion(descripcion);
             if (pre.guardarPrecio(pr)) {
-                bean.setError("<div class='alert alert-success'>La Pelicula ha sido registrada</div>");
+                bean.setError("<div class='alert alert-success'>El Precio ha sido registrado</div>");
                 bean.setPrecio(0.0);
                 bean.setDescripcion("");
                 List<Precios> listaPrecios = pre.consultartodo();
@@ -176,4 +176,3 @@ public class PreciosAction extends org.apache.struts.action.Action {
         return mapping.findForward(CONFIRMACION);
     }
 }
-
