@@ -32,6 +32,8 @@ public class SalasAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
+        
+        
         return mapping.findForward(CONFIRMACION);
     }
 }

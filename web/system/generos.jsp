@@ -20,6 +20,10 @@
         <!-- Javascript para máscaras -->
         <script type="text/javascript" src="vendor/jquery/jquery.mask.min.js"></script>
         <script type="text/javascript" src="documentController.js"></script>
+        <script type="text/javascript" src="systemJS/generosJS.js"></script>
+        <!-- Javascript para Alerts -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -66,19 +70,19 @@
                                     <html:text styleId="idGenero" styleClass="form-control" property="idGenero" readonly="true"></html:text>
                                     </div>
                                 </div>
-                            <div class="form-group row" style="margin-top: 20%">
-                                <label class="col-sm-3 col-form-label">Genero:</label>
-                                <div class="col-sm-9">
-                                   <html:text styleId="genero" styleClass="form-control" property="genero"></html:text>
+                                <div class="form-group row" style="margin-top: 20%">
+                                    <label class="col-sm-3 col-form-label">Genero:</label>
+                                    <div class="col-sm-9">
+                                    <html:text styleId="genero" styleClass="form-control" property="genero"></html:text>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="text-center" style="margin-top: 20%">
-                                </br>
-                                <!--botones para realizar acciones del formulario-->
+                                <div class="text-center" style="margin-top: 20%">
+                                    </br>
+                                    <!--botones para realizar acciones del formulario-->
                                 <html:submit styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
                                 <html:submit styleClass="btn btn-secondary" property="action" value="Modificar"></html:submit>
                                 <html:submit styleClass="btn btn-danger" property="action" value="Eliminar"></html:submit>
-                            </div>
+                                </div>
                         </html:form>
                     </div>
                 </div>        
@@ -91,8 +95,8 @@
     <!-- Menu Toggle Script -->
     <script>
         $("#wrapper").toggleClass("toggled");
-        
-        $("#generosTable").on("dblclick", ".infoBtn",function(){
+
+        $("#generosTable").on("dblclick", ".infoBtn", function () {
             var data = $(this).data("info").split(";;");
             $("#idGenero").val(data[0]);
             $("#genero").val(data[1]);

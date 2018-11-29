@@ -97,6 +97,23 @@ public class SalasMantenimiento {
         }
         return listasal;
     }
+    
+    /*public List consultarPorSala(String nombreSala) {
+        List<Salas> listasal = null;
+        factory = HibernateUtil.getSessionFactory();
+        session = factory.openSession();
+        session.beginTransaction();
+        try {
+            Query query = session.createQuery("select s from Salas s where s.Salas = '"+nombreSala+"'");
+            listasal = (List<Salas>) query.list();
+
+        } catch (Exception e) {
+            System.out.println("ERROR. " + e);
+        } finally {
+            
+        }
+        return listasal;
+    }*/
 
    public boolean modificarSala (Salas s) {
         boolean r = false;
