@@ -26,22 +26,9 @@ public class PreciosActionForm extends org.apache.struts.action.ActionForm {
     private String descripcion;
     private String action;
     private String error;
-<<<<<<< Updated upstream
     private List<Precios> listaPrecios; 
-=======
-    private List<Precios> listaPrecios;
->>>>>>> Stashed changes
     private List<Sucursales> listaSucursales;
 
-    public List<Sucursales> getListaSucursales() {
-        return listaSucursales;
-    }
-
-    public void setListaSucursales(List<Sucursales> listaSucursales) {
-        this.listaSucursales = listaSucursales;
-    }
-
-    
     public Integer getIdPrecio() {
         return idPrecio;
     }
