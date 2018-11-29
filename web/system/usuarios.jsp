@@ -47,7 +47,7 @@
                             <tbody>
                                 <logic:notEmpty name="UsuariosActionForm" property="listaUsuario">
                                     <logic:iterate id="ver" name="UsuariosActionForm" property="listaUsuario">
-                                        <html:form action="/system/empresa"> 
+                                        <html:form action="/system/usuarios"> 
                                             <tr  style="cursor: pointer;" id="registro" class="infoBtn" 
                                                  data-info="${ver.idUsuario};;${ver.tiposUsuarios.tipo};;${ver.empresas.nombre};;${ver.nickname};;${ver.nombres};;${ver.apellidos};;${ver.correo};;${ver.contrasenia}">
                                                 <th scope="row"><bean:write name="ver" property="nombres"/></th>
@@ -63,46 +63,49 @@
                     </div>
                     <!--Formulario para ingresar y consultar datos-->
                     <div class="col-md-4 border border-dark rounded" style="background-color: white">
-                        <form>
+                        <html:form action="/system/usuarios">
                             <br>
+                            <div class="form-group row">
+                                <div class="col-sm-9">
+                                    <html:text styleId="" styleClass="form-control" property="idUsuario" readonly="true" />
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Nombres:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese nombre del usuario" maxlength="100">
+                                    <html:text styleId="" styleClass="form-control" property="nombres" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Apellidos:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese apellido del usuario" maxlength="100">
+                                    <html:text styleId="" styleClass="form-control" property="apellidos"/>                                    
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Usuario:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese nombre de usuario" maxlength="25">
+                                    <html:text styleId="" styleClass="form-control" property="nickname"/>                                    
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Correo:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese correo del usuario" maxlength="100">
+                                    <html:text styleId="" styleClass="form-control" property="correo"/>                                    
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Contraseña:</label>
                                 <div class="col-sm-9">
-                                    <input type="password" class="form-control" placeholder="Ingrese contraseña del usuario" maxlength="100">
+                                    <html:password styleId="" styleClass="form-control" property="contrasenia"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Tipo de Usuario:</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control">
-                                        <option value="">Administrador</option>
-                                        <option value="">Cajero</option>
-                                        <option value="">Mantenimiento</option>
-                                    </select>
+                                    <html:select property="idTipoUsuario" styleId="" styleClass="form-control">
+                                        <html:optionsCollection name="UsuariosActionForm" property="listaTiposUsuarios" label="tipo" value="idTipoUsuario" />
+                                    </html:select>                                    
                                 </div>
                             </div>
                             <div class="text-center">
@@ -112,7 +115,7 @@
                                 <button type="submit" class="btn btn-secondary">Modificar</button>
                                 <button type="submit" class="btn btn-danger">Eliminar</button><br></br>
                             </div>
-                        </form>
+                        </html:form>
                     </div>
                 </div>
             </div>

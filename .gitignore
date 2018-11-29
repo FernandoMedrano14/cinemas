@@ -4,3 +4,9 @@
 nbproject/project\.properties
 
 src/java/hibernate\.cfg\.xml
+
+nbproject/build-impl\.xml
+
+nbproject/genfiles\.properties
+
+nbproject/project\.xml
