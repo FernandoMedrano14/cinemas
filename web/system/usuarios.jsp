@@ -101,7 +101,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Contraseña:</label>
                                 <div class="col-sm-9">
-                                    <html:password styleId="" styleClass="form-control" property="contrasenia"/>
+                                    <html:password styleId="" styleClass="form-control" property="contrasenia" redisplay="false" />
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -109,6 +109,14 @@
                                 <div class="col-sm-9">
                                     <html:select property="idTipoUsuario" styleId="" styleClass="form-control">
                                         <html:optionsCollection name="UsuariosActionForm" property="listaTiposUsuarios" label="tipo" value="idTipoUsuario" />
+                                    </html:select>                                    
+                                </div>
+                            </div>
+                                <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Empresa:</label>
+                                <div class="col-sm-9">
+                                    <html:select property="idEmpresa" styleId="" styleClass="form-control">
+                                        <html:optionsCollection name="UsuariosActionForm" property="listaEmpresas" label="nombre" value="idEmpresa" />
                                     </html:select>                                    
                                 </div>
                             </div>

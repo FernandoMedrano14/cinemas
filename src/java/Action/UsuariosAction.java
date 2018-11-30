@@ -34,15 +34,13 @@ public class UsuariosAction extends org.apache.struts.action.Action {
     private static final String MODIFICAR = "modificar";
     private static final String MOSTRAR = "confirmacion";
     
-    
-    
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
         UsuariosActionForm bean = (UsuariosActionForm) form;
-        
+        System.out.println("CARGO USUARIOS");
         if(bean.getAction().equals("iniciar")){
             UsuariosMantenimiento manto = new UsuariosMantenimiento();
             List<Usuarios> listausuarios = manto.consultartodo();
@@ -53,8 +51,8 @@ public class UsuariosAction extends org.apache.struts.action.Action {
             bean.setListaTiposUsuarios(listaTiposUsuarios);
             
             EmpresasMantenimiento em = new EmpresasMantenimiento();
-            List<Empresas> listaEmrpesa = em.consultartodo();
-            bean.setListaEmpresa(listaEmrpesa);
+            List<Empresas> listaEmpresas = em.consultartodo();
+            bean.setListaEmpresas(listaEmpresas);
             
             return mapping.findForward(CONSULTAR);
         }
@@ -76,9 +74,23 @@ public class UsuariosAction extends org.apache.struts.action.Action {
             u.setCorreo(bean.getCorreo());
             u.setContrasenia(bean.getContrasenia());
             if(mantoUsuarios.guardarUsuario(u)){
-                
-            }
-            return mapping.findForward("");
+                bean.setNombres("");
+                bean.setApellidos("");
+                bean.setNickname("");
+                bean.setCorreo("");                
+                UsuariosMantenimiento manto = new UsuariosMantenimiento();
+                List<Usuarios> listausuarios = manto.consultartodo();
+                bean.setListaUsuario(listausuarios);
+
+                TiposUsuariosMantenimiento mantoTiposUusarios = new TiposUsuariosMantenimiento();
+                List<TiposUsuarios> listaTiposUsuarios = mantoTiposUusarios.consultartodo();
+                bean.setListaTiposUsuarios(listaTiposUsuarios);
+
+                EmpresasMantenimiento em = new EmpresasMantenimiento();
+                List<Empresas> listaEmpresas = em.consultartodo();
+                bean.setListaEmpresas(listaEmpresas);
+            }            
+            return mapping.findForward(CONSULTAR);
         }
         
         return mapping.findForward(CONFIRMACION);

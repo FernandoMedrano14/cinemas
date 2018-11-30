@@ -28,7 +28,7 @@ public class UsuariosActionForm extends org.apache.struts.action.ActionForm {
     private String error;
     private List<Usuarios> listaUsuario;
     private List<TiposUsuarios> listaTiposUsuarios;
-    private List<Empresas> listaEmpresa;
+    private List<Empresas> listaEmpresas;
 
     public List<TiposUsuarios> getListaTiposUsuarios() {
         return listaTiposUsuarios;
@@ -126,12 +126,12 @@ public class UsuariosActionForm extends org.apache.struts.action.ActionForm {
         this.listaUsuario = listaUsuario;
     }
 
-    public List<Empresas> getListaEmpresa() {
-        return listaEmpresa;
+    public List<Empresas> getListaEmpresas() {
+        return listaEmpresas;
     }
 
-    public void setListaEmpresa(List<Empresas> listaEmpresa) {
-        this.listaEmpresa = listaEmpresa;
+    public void setListaEmpresas(List<Empresas> listaEmpresas) {
+        this.listaEmpresas = listaEmpresas;
     }
     
 }
