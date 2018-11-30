@@ -50,7 +50,7 @@ public class UsuariosAction extends org.apache.struts.action.Action {
             
             TiposUsuariosMantenimiento mantoTiposUusarios = new TiposUsuariosMantenimiento();
             List<TiposUsuarios> listaTiposUsuarios = mantoTiposUusarios.consultartodo();
-            bean.setListaTipoUsuario(listaTiposUsuarios);
+            bean.setListaTiposUsuarios(listaTiposUsuarios);
             
             EmpresasMantenimiento em = new EmpresasMantenimiento();
             List<Empresas> listaEmrpesa = em.consultartodo();
