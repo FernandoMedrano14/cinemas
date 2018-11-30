@@ -4,8 +4,8 @@ $(document).ready(function () {
         language: {"url": 'dataTables/datatable_es.json'},
         columns: [
             {"width": "20%"},
-            {"width": "60%"},
-            {"width": "10%"},
+            {"width": "50%"},
+            {"width": "20%"},
             {"width": "20%"}
         ],
         columnDefs: [{
@@ -14,7 +14,11 @@ $(document).ready(function () {
         }],
         responsive: true,
         "autoWidth": false,
-        searching: false,
+        "info": false,
+        "scrollY": "350px",
+        "scrollX": false,
+        "scrollCollapse": true,
+        "paging": false
     });
 
     $("#nueva").click(function (e) {
