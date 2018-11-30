@@ -10,3 +10,23 @@ nbproject/build-impl\.xml
 nbproject/genfiles\.properties
 
 nbproject/project\.xml
+
+src/java/Action/PreciosAction\.java
+
+src/java/Action/SalasAction\.java
+
+src/java/Action/SucursalesAction\.java
+
+src/java/Action/UsuariosAction\.java
+
+src/java/Action/VentasAction\.java
+
+src/java/Actionform/PreciosActionForm\.java
+
+src/java/Actionform/SalasActionForm\.java
+
+src/java/Actionform/SucursalesActionForm\.java
+
+src/java/Actionform/UsuariosActionForm\.java
+
+src/java/Actionform/VentasActionForm\.java

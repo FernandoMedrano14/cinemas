@@ -5,6 +5,7 @@
  */
 package Actionform;
 
+import Persistencia.Empresas;
 import Persistencia.Sucursales;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,7 @@ public class SucursalesActionForm extends org.apache.struts.action.ActionForm {
     private String action;
     private String error;
     private List<Sucursales> listaSucursal;
+    private List<Empresas> listaEmpresa;
 
     public Integer getIdSucursal() {
         return idSucursal;
@@ -90,6 +92,14 @@ public class SucursalesActionForm extends org.apache.struts.action.ActionForm {
 
     public void setListaSucursal(List<Sucursales> listaSucursal) {
         this.listaSucursal = listaSucursal;
+    }
+
+    public List<Empresas> getListaEmpresa() {
+        return listaEmpresa;
+    }
+
+    public void setListaEmpresa(List<Empresas> listaEmpresa) {
+        this.listaEmpresa = listaEmpresa;
     }
     
 }

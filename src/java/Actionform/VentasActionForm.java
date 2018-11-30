@@ -5,6 +5,7 @@
  */
 package Actionform;
 
+import Persistencia.Funciones;
 import Persistencia.Ventas;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +31,7 @@ public class VentasActionForm extends org.apache.struts.action.ActionForm {
     private String action;
     private String error;
     private List<Ventas> listaVenta;
+    private List<Funciones> listaFuncion;
 
     public Integer getIdVenta() {
         return idVenta;
@@ -117,6 +119,14 @@ public class VentasActionForm extends org.apache.struts.action.ActionForm {
 
     public void setListaVenta(List<Ventas> listaVenta) {
         this.listaVenta = listaVenta;
+    }
+
+    public List<Funciones> getListaFuncion() {
+        return listaFuncion;
+    }
+
+    public void setListaFuncion(List<Funciones> listaFuncion) {
+        this.listaFuncion = listaFuncion;
     }
     
 }
