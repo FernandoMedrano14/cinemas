@@ -34,6 +34,7 @@ public class UsuariosMantenimiento {
         }catch(Exception ex){
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
+                System.out.println("ERROR AL GUARDAR USUARIO: "+ex);
                 r = false;
             }
         } finally {

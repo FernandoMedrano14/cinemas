@@ -115,6 +115,7 @@
                             <div class="text-center">
                                 </br>
                                 <!--botones para realizar acciones del formulario-->
+                                <html:submit property="action" value="guardar" />
                                 <button type="submit" class="btn btn-info">Nuevo</button>
                                 <button type="submit" class="btn btn-secondary">Modificar</button>
                                 <button type="submit" class="btn btn-danger">Eliminar</button><br></br>

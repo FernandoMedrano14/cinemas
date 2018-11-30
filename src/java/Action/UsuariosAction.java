@@ -59,6 +59,28 @@ public class UsuariosAction extends org.apache.struts.action.Action {
             return mapping.findForward(CONSULTAR);
         }
         
+        if(bean.getAction().equals("guardar")){
+            System.out.println("Estoy Guardando");
+            UsuariosMantenimiento mantoUsuarios = new UsuariosMantenimiento();
+            Usuarios u = new Usuarios();
+            u.setIdUsuario(0);
+            TiposUsuarios tiposUsuarios = new TiposUsuarios();
+            tiposUsuarios.setIdTipoUsuario(bean.getIdTipoUsuario());
+            u.setTiposUsuarios(tiposUsuarios);
+            Empresas e = new Empresas();
+            e.setIdEmpresa(bean.getIdEmpresa());
+            u.setEmpresas(e);
+            u.setNickname(bean.getNickname());
+            u.setNombres(bean.getNombres());
+            u.setApellidos(bean.getApellidos());
+            u.setCorreo(bean.getCorreo());
+            u.setContrasenia(bean.getContrasenia());
+            if(mantoUsuarios.guardarUsuario(u)){
+                
+            }
+            return mapping.findForward("");
+        }
+        
         return mapping.findForward(CONFIRMACION);
     }
 }
