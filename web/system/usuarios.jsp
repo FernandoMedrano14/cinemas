@@ -6,24 +6,8 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 
 <html:html lang="true">
-    <head>
-        <meta charset="utf8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Cinemas</title>
-        <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom styles for this template -->
-        <link href="css/simple-sidebar.css" rel="stylesheet">
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- Javascript para máscaras -->
-        <script type="text/javascript" src="vendor/jquery/jquery.mask.min.js"></script>
-        <script type="text/javascript" src="documentController.js"></script>
-        <script type="text/javascript" src="systemJS/usuariosJS.js"></script>
-        <!-- Javascript para Alerts -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+   <head>
+        <%@include file="./ext/head.html" %>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>

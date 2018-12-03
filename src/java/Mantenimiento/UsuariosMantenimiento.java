@@ -58,7 +58,39 @@ public class UsuariosMantenimiento {
         }
         return usu;
     }
-
+    
+    public boolean buscarUsuariosExistente(String usuario){
+        session= factory.openSession();
+        
+        try {
+            session.beginTransaction();
+            Query q = session.createQuery("SELECT u FROM Usuarios u WHERE u.nickname=:usuario");
+            q.setParameter("usuario", usuario);
+            List<Usuarios> lista = q.list();
+            System.out.println(lista.size());
+            return true;
+        } catch (Exception e) {
+            System.out.println("ERROR AL BUSCAR UN USUARIO EXISTENTE. "+e);
+            return false;
+        }        
+    }
+    
+    public boolean buscarCorreoExistente(String correo){
+        session= factory.openSession();
+        
+        try {
+            session.beginTransaction();
+            Query q = session.createQuery("SELECT u FROM Usuarios u WHERE u.correo=:correo");
+            q.setParameter("correo", correo);
+            List<Usuarios> lista = q.list();
+            //System.out.println(lista.size());
+            return lista.size()>0;
+        } catch (Exception e) {
+            System.out.println("ERROR AL BUSCAR UN CORREO EXISTENTE. "+e);
+            return false;
+        }        
+    }
+    
     public int eliminar(int idUsuario) {
         session = factory.openSession();
         int flag = 0;
@@ -108,6 +140,7 @@ public class UsuariosMantenimiento {
         }catch(Exception ex){
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
+                System.out.println("ERROR AL MODIFICAR USUARIO. "+ex);
                 r = false;
             }
         } finally {
