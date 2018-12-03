@@ -24,12 +24,7 @@ $(document).ready(function () {
         var tipoClasificacion = $("#tipoClasificacion").val();
         var detalleClasificacion = $("#detalleClasificacion").val();
 
-        if (idClasificacion != "") {
-            $("#idClasificacion").val("");
-            $("#tipoClasificacion").val("");
-            $("#detalleClasificacion").val("");
-
-        } else {
+        if (idClasificacion == "" || idClasificacion == 0) {
             var isValid = true;
 
             if (tipoClasificacion == "") {
@@ -46,9 +41,16 @@ $(document).ready(function () {
                 $("#detalleClasificacion").removeClass("is-invalid");
             }
             if (isValid) {
-                location.href = "clasificaciones.do?action=Nueva&tipoClasificaicon=" + tipoClasificacion + "&detalleClasificacion=" + detalleClasificacion;
+                location.href = "clasificaciones.do?action=Nueva&tipoClasificacion=" + tipoClasificacion + "&detalleClasificacion=" + detalleClasificacion;
             }
 
+        } else {
+            $("#idClasificacion").val("");
+            $("#tipoClasificacion").val("");
+            $("#detalleClasificacion").val("");
+
+            $("#tipoClasificacion").removeClass("is-invalid");
+            $("#detalleClasificacion").removeClass("is-invalid");
         }
     });
 
@@ -59,7 +61,7 @@ $(document).ready(function () {
         var tipoClasificacion = $("#tipoClasificacion").val();
         var detalleClasificacion = $("#detalleClasificacion").val();
 
-        if (idClasificacion == "") {
+        if (idClasificacion == "" || idClasificacion == 0) {
             $("#error").html("No se puede modificar un Registro que no exista");
             error();
         } else {
@@ -92,9 +94,7 @@ $(document).ready(function () {
         $("#deleteModal").modal("show");
     });
 
-    $("#eliminar").click(function (e) {
-        e.preventDefault();
-
+    $("#eliminar").click(function () {
         var idClasificacion = $("#keyDelete").val();
 
         if (idClasificacion == "" || idClasificacion == 0) {

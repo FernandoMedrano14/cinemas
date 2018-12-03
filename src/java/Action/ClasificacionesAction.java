@@ -36,7 +36,6 @@ public class ClasificacionesAction extends org.apache.struts.action.Action {
             throws Exception {
 
         ClasificacionesActionForm formCla = (ClasificacionesActionForm) form;
-
         Integer idClasificacion = formCla.getIdClasificacion();
         String tipoClasificacion = formCla.getTipoClasificacion();
         String detalleClasificacion = formCla.getDetalleClasificacion();
@@ -51,14 +50,14 @@ public class ClasificacionesAction extends org.apache.struts.action.Action {
         }
 
         if (action.equals("Nueva")) {
+            System.out.println("Evento Nueva");
             Clasificaciones c = new Clasificaciones();
-            c.setIdClasificacion(idClasificacion);
+            c.setIdClasificacion(0);
             c.setTipoClasificacion(tipoClasificacion);
             c.setDetalleClasificacion(detalleClasificacion);
 
             ClasificacionesMantenimiento cla = new ClasificacionesMantenimiento();
             if (cla.guardarClasificacion(c)) {
-                formCla.setError("<div class='alert alert-success'>Esta clasificacion ya ha sido registrada</div>");
                 formCla.setTipoClasificacion("");
                 formCla.setDetalleClasificacion("");
                 List<Clasificaciones> listaClasificacion = cla.consultartodo();
@@ -93,7 +92,7 @@ public class ClasificacionesAction extends org.apache.struts.action.Action {
             c.setDetalleClasificacion(detalleClasificacion);
 
             ClasificacionesMantenimiento cla = new ClasificacionesMantenimiento();
-            if (cla.modificarEmpresa(c)) {
+            if (cla.modificarClasificacion(c)) {
                 formCla.setIdClasificacion(0);
                 formCla.setTipoClasificacion("");
                 formCla.setDetalleClasificacion("");
@@ -129,7 +128,6 @@ public class ClasificacionesAction extends org.apache.struts.action.Action {
                 formCla.setDetalleClasificacion("");
                 List<Clasificaciones> listaClasificacion = cla.consultartodo();
                 formCla.setListaClasificacion(listaClasificacion);
-                formCla.setIdClasificacion(idClasificacion);
                 mensaje = "Éxito al eliminar";
                 request.setAttribute("mensaje", mensaje);
                 return mapping.findForward(ELIMINAR);

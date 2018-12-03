@@ -146,7 +146,6 @@ public class ActionEmpresas extends org.apache.struts.action.Action {
                 formEmp.setGiro("");
                 List<Empresas> listaEmpresa = emp.consultartodo();
                 formEmp.setListaEmpresa(listaEmpresa);
-                formEmp.setIdEmpresa(idEmpresa);
                 mensaje = "Éxito al eliminar";
                 request.setAttribute("mensaje", mensaje);
                 return mapping.findForward(ELIMINAR);

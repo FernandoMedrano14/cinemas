@@ -154,20 +154,19 @@
     </global-forwards>
 
     <action-mappings>
-        <action input="/" name="VentasActionForm" path="/system/funciones" scope="session" type="Action.ClasificacionesAction"/>
-        <action input="/" name="VentasActionForm" path="/system/tiposusuarios" scope="session" type="Action.TiposUsuarioAction"/>
-        <action input="/" name="VentasActionForm" path="/system/ventas" scope="session" type="Action.VentasAction"/>
-        <action input="/" name="UsuariosActionForm" path="/system/usuarios" scope="session" type="Action.UsuariosAction"/>
-        <action input="/" name="SucursalesActionForm" path="/system/sucursales" scope="session" type="Action.SucursalesAction"/>
-        <action input="/" name="SalasActionForm" path="/system/sala" scope="session" type="Action.SalasAction"/>
-        <action input="/" name="PreciosActionForm" path="/system/precios" scope="session" type="Action.PreciosAction"/>
-        <action input="/" name="PeliculasActionForm" path="/system/peliculas" scope="session" type="Action.PeliculasAction"/>
+        <action name="EmpresasActionForm" path="/system/empresa" scope="request" type="Action.ActionEmpresas"/>
+        <action name="ClasificacionesActionForm" path="/system/clasificaciones" scope="request" type="Action.ClasificacionesAction"/>
+        <action name="TipoUsuariosActionForm" path="/system/tiposusuarios" scope="session" type="Action.TiposUsuarioAction"/>
+        <action name="VentasActionForm" path="/system/ventas" scope="session" type="Action.VentasAction"/>
+        <action name="UsuariosActionForm" path="/system/usuarios" scope="session" type="Action.UsuariosAction"/>
+        <action name="SucursalesActionForm" path="/system/sucursales" scope="session" type="Action.SucursalesAction"/>
+        <action name="SalasActionForm" path="/system/sala" scope="session" type="Action.SalasAction"/>
+        <action name="PreciosActionForm" path="/system/precios" scope="session" type="Action.PreciosAction"/>
+        <action name="PeliculasActionForm" path="/system/peliculas" scope="session" type="Action.PeliculasAction"/>
         <action name="HorariosActionForm" path="/system/horarios" scope="session" type="Action.HorariosAction"/>
         <action name="GenerosActionForm" path="/system/genero" scope="session" type="Action.GeneroAction"/>
         <action name="FuncionesActionForm" path="/system/funciones" scope="session" type="Action.ActionFunciones"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
-        <action name="EmpresasActionForm" path="/system/empresa" scope="request" type="Action.ActionEmpresas"/>
-        <action name="ClasificacionesActionForm" path="/system/clasificaciones" scope="request" type="Action.ClasificacionesAction"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

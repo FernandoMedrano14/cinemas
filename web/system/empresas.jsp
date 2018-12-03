@@ -54,9 +54,8 @@
                     <!--Formulario para ingresar y consultar datos-->
                     <div class="col-md-4 border border-dark rounded" style="background-color: white">
                         <html:form action="/system/empresa" styleId="formEmpresas">
-                            </br>
+                            <br>
                             <div class="form-group row" hidden="true">
-                                <label class="col-sm-3 col-form-label">ID:</label>
                                 <div class="col-sm-9">
                                     <html:text styleId="idEmpresa" styleClass="form-control" property="idEmpresa" readonly="true"></html:text>
                                     </div>
@@ -108,26 +107,24 @@
                 </div>
 
                 <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
-                    <form action="cliente" method="post">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Eliminar</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <input type="hidden" class="form-control" id="keyDelete">
-                                    <p>¿Está seguro que desea eliminar este Registro?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <submit id="eliminar" class="btn btn-danger">Confirmar</submit>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                </div>
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Eliminar</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" class="form-control" id="keyDelete">
+                                <p>¿Está seguro que desea eliminar este Registro?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="eliminar" class="btn btn-danger">Confirmar</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 
             </div>

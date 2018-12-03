@@ -52,7 +52,6 @@
                         <html:form action="/system/clasificaciones" styleId="formClass">
                             <br>
                             <div class="form-group row" hidden="true">
-                                <label class="col-sm-3 col-form-label">ID:</label>
                                 <div class="col-sm-9">
                                     <html:text styleId="idClasificacion" styleClass="form-control" property="idClasificacion" readonly="true"></html:text>
                                 </div>
@@ -70,37 +69,35 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                </br>
+                                <br>
                                 <!--botones para realizar acciones del formulario-->
                                 <html:submit styleId="nueva" styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
                                 <html:submit styleId="modificar" styleClass="btn btn-secondary" property="action" value="Modificar"></html:submit>
-                                <button type="submit" class="btn btn-danger" id="btnEliminar">Eliminar</button><br></br>
+                                <submit type="button" class="btn btn-danger" id="btnEliminar">Eliminar</submit>
                             </div>
                         </html:form>  
                     </div>
                 </div>
                 
                 <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
-                    <form action="cliente" method="post">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Eliminar</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <input type="hidden" class="form-control" id="keyDelete">
-                                    <p>¿Está seguro que desea eliminar este Registro?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <submit id="eliminar" class="btn btn-danger">Confirmar</submit>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                </div>
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Eliminar</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" class="form-control" id="keyDelete">
+                                <p>¿Está seguro que desea eliminar este Registro?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="eliminar" class="btn btn-danger">Confirmar</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 
             </div>
@@ -108,6 +105,10 @@
         <!-- /#page-content-wrapper -->
     </div>
     <!-- /#wrapper -->
+    <div id="error" hidden="hidden">${error}</div>
+    <div id="mensaje" hidden="hidden">${mensaje}</div>
+    <div id="info" hidden="hidden">${info}</div>
+    <div id="warning" hidden="hidden">${warning}</div>
 
     <!-- Menu Toggle Script -->
     <script>

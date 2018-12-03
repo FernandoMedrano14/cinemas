@@ -32,22 +32,7 @@ $(document).ready(function () {
         var numeroRegistro = $("#numeroRegistro").val();
         var giro = $("#giro").val();
 
-        if (idEmpresa != "") {
-            $("#idEmpresa").val("");
-            $("#nombre").val("");
-            $("#direccion").val("");
-            $("#telefono").val("");
-            $("#nit").val("");
-            $("#numeroRegistro").val("");
-            $("#giro").val("");
-
-            $("#nombre").removeClass("is-invalid");
-            $("#direccion").removeClass("is-invalid");
-            $("#telefono").removeClass("is-invalid");
-            $("#nit").removeClass("is-invalid");
-            $("#numeroRegistro").removeClass("is-invalid");
-            $("#giro").removeClass("is-invalid");
-        } else {
+        if(idEmpresa == "" || idEmpresa == 0){
             var isValid = true;
 
             if (nombre == "") {
@@ -96,7 +81,21 @@ $(document).ready(function () {
                 location.href = "empresa.do?action=Nueva&nombre=" + nombre + "&direccion=" + direccion + "&telefono=" + telefono
                         + "&nit=" + nit + "&numeroRegistro=" + numeroRegistro + "&giro=" + giro;
             }
+        } else {
+            $("#idEmpresa").val("");
+            $("#nombre").val("");
+            $("#direccion").val("");
+            $("#telefono").val("");
+            $("#nit").val("");
+            $("#numeroRegistro").val("");
+            $("#giro").val("");
 
+            $("#nombre").removeClass("is-invalid");
+            $("#direccion").removeClass("is-invalid");
+            $("#telefono").removeClass("is-invalid");
+            $("#nit").removeClass("is-invalid");
+            $("#numeroRegistro").removeClass("is-invalid");
+            $("#giro").removeClass("is-invalid");
         }
     });
 
