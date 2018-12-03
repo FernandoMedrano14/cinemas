@@ -41,6 +41,7 @@ public class ClasificacionesAction extends org.apache.struts.action.Action {
         String tipoClasificacion = formCla.getTipoClasificacion();
         String detalleClasificacion = formCla.getDetalleClasificacion();
         String action = formCla.getAction();
+        String mensaje;
 
         if (action.equals("Iniciar")) {
             ClasificacionesMantenimiento cla = new ClasificacionesMantenimiento();
@@ -50,26 +51,6 @@ public class ClasificacionesAction extends org.apache.struts.action.Action {
         }
 
         if (action.equals("Nueva")) {
-            String advertencia = "";
-
-            if (idClasificacion != 0) {
-                advertencia = "Esta clasificacion ya existe";
-            }
-
-            if (tipoClasificacion == null || tipoClasificacion.equals("")) {
-                advertencia = "*Es necesario agregar el tipo de clasificacion";
-            }
-
-            if (detalleClasificacion == null || detalleClasificacion.equals("")) {
-                advertencia = "*Es necesario agregar detalle a la clasificacion";
-            }
-
-            System.out.println(advertencia);
-            if (!advertencia.equals("")) {
-                formCla.setError("<span style='color:red'> Complete los campos sin rellenar" + "<br>" + advertencia + "</span>");
-                return mapping.findForward(ERROR);
-            }
-
             Clasificaciones c = new Clasificaciones();
             c.setIdClasificacion(idClasificacion);
             c.setTipoClasificacion(tipoClasificacion);
@@ -82,9 +63,12 @@ public class ClasificacionesAction extends org.apache.struts.action.Action {
                 formCla.setDetalleClasificacion("");
                 List<Clasificaciones> listaClasificacion = cla.consultartodo();
                 formCla.setListaClasificacion(listaClasificacion);
+                mensaje = "Éxito al guardar";
+                request.setAttribute("mensaje", mensaje);
                 return mapping.findForward(GUARDAR);
             } else {
-                formCla.setError("<div class='alert alert-danger'>Ocurrio un error al crear la Empresa.</div>");
+                mensaje = "Ocurrió un error al tratar de guardar los datos";
+                request.setAttribute("error", mensaje);
                 return mapping.findForward(ERROR);
             }
         }
@@ -92,8 +76,9 @@ public class ClasificacionesAction extends org.apache.struts.action.Action {
         if (action.equals("consultar")) {
             ClasificacionesMantenimiento cla = new ClasificacionesMantenimiento();
             List<Clasificaciones> listaClasificacion = cla.consultartodo();
-            if (listaClasificacion == null) {
-                formCla.setError("<span style='color:red'>No se encontraron registros" + "<br></span>");
+            if (listaClasificacion.isEmpty()) {
+                mensaje = "No hay datos para mostrar";
+                request.setAttribute("info", mensaje);
                 return mapping.findForward(ERROR);
             } else {
                 formCla.setListaClasificacion(listaClasificacion);
@@ -102,8 +87,6 @@ public class ClasificacionesAction extends org.apache.struts.action.Action {
         }
 
         if (action.equals("Modificar")) {
-            System.out.println("Entra el accion");
-            String advertencia = "";
             Clasificaciones c = new Clasificaciones();
             c.setIdClasificacion(idClasificacion);
             c.setTipoClasificacion(tipoClasificacion);
@@ -115,23 +98,30 @@ public class ClasificacionesAction extends org.apache.struts.action.Action {
                 formCla.setTipoClasificacion("");
                 formCla.setDetalleClasificacion("");
 
-                advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> la clasificacion ha sido modificada.\n</div>");
-                request.setAttribute("advertencia", advertencia);
+                mensaje = "Éxito al modificar";
+                request.setAttribute("mensaje", mensaje);
                 List<Clasificaciones> listaClasificacion = cla.consultartodo();
                 formCla.setListaClasificacion(listaClasificacion);
                 return mapping.findForward(MODIFICAR);
             } else {
-                formCla.setError("<div class='alert alert-danger'>Ocurrio un error al modificar la clasificacion.</div>");
+                formCla.setIdClasificacion(0);
+                formCla.setTipoClasificacion("");
+                formCla.setDetalleClasificacion("");
+                
+                mensaje = "Ocurrió un error al modificar";
+                request.setAttribute("error", mensaje);
                 return mapping.findForward(ERROR);
             }
         }
 
         if (action.equals("Eliminar")) {
-            String advertencia = "";
-
             ClasificacionesMantenimiento cla = new ClasificacionesMantenimiento();
             if (cla.eliminar(idClasificacion) == 0) {
-                formCla.setError("<div class='alert alert-danger'>Ocurrio un error al eliminar la clasificacion.</div>");
+                List<Clasificaciones> listaClasificacion = cla.consultartodo();
+                formCla.setListaClasificacion(listaClasificacion);
+                formCla.setIdClasificacion(0);
+                mensaje = "Ocurrió un error al eliminar";
+                request.setAttribute("error", mensaje);
                 return mapping.findForward(ERROR);
             } else {
                 formCla.setIdClasificacion(0);
@@ -140,6 +130,8 @@ public class ClasificacionesAction extends org.apache.struts.action.Action {
                 List<Clasificaciones> listaClasificacion = cla.consultartodo();
                 formCla.setListaClasificacion(listaClasificacion);
                 formCla.setIdClasificacion(idClasificacion);
+                mensaje = "Éxito al eliminar";
+                request.setAttribute("mensaje", mensaje);
                 return mapping.findForward(ELIMINAR);
             }
         }

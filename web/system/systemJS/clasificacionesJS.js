@@ -1,4 +1,21 @@
 $(document).ready(function () {
+    
+    $('#classTable').DataTable({
+        language: {"url": 'dataTables/datatable_es.json'},
+        columns: [
+            {"width": "10%"},
+            {"width": "90%"}
+        ],
+        columnDefs: [{
+            targets: [1],
+            className: 'dt-body-left'
+        }],
+        responsive: true,
+        "autoWidth": false,
+        "info": false,
+        "scrollCollapse": true,
+        "paging": false
+    });
 
     $("#nueva").click(function (e) {
         e.preventDefault();
@@ -68,38 +85,26 @@ $(document).ready(function () {
 
         }
     });
+    
+    $("#btnEliminar").click(function () {
+        var idClasificacion = $("#idClasificacion").val();
+        $("#keyDelete").val(idClasificacion);
+        $("#deleteModal").modal("show");
+    });
 
     $("#eliminar").click(function (e) {
         e.preventDefault();
 
-        var idClasificacion = $("#idClasificacion").val();
-        var tipoClasificacion = $("#tipoClasificacion").val();
-        var detalleClasificacion = $("#detalleClasificacion").val();
+        var idClasificacion = $("#keyDelete").val();
 
-        if (idClasificacion == "") {
-            $("#error").html("No se puede eliminar un registro que no exista");
+        if (idClasificacion == "" || idClasificacion == 0) {
+            $("#error").html("No se puede eliminar un Registro que no exista");
+            $("#deleteModal").modal("hide");
             error();
         } else {
-            var isValid = true;
-
-            if (tipoClasificacion == "") {
-                $("#tipoClasificacion").addClass("is-invalid");
-                isValid = false;
-            } else {
-                $("#tipoClasificacion").removeClass("is-invalid");
-            }
-
-            if (detalleClasificacion == "") {
-                $("#detalleClasificacion").addClass("is-invalid");
-                isValid = false;
-            } else {
-                $("#detalleClasificacion").removeClass("is-invalid");
-            }
-
-            if (isValid) {
-                location.href = "clasificaciones.do?action=Eliminar&idClasificacion=" + idClasificacion;
-            }
-
+            $("#idClasificacion").val("");
+            $("#keyDelete").val("");
+            location.href = "clasificaciones.do?action=Eliminar&idClasificacion=" + idClasificacion;
         }
     });
 
