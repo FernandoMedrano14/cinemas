@@ -7,23 +7,9 @@
 
 <html:html lang="true">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Cinemas</title>
-        <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom styles for this template -->
-        <link href="css/simple-sidebar.css" rel="stylesheet">
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- Javascript para máscaras -->
-        <script type="text/javascript" src="vendor/jquery/jquery.mask.min.js"></script>
-        <script type="text/javascript" src="documentController.js"></script>
+        <%@include file="./ext/head.html" %>
+        <!-- Javascript para Controlador -->
         <script type="text/javascript" src="systemJS/clasificacionesJS.js"></script>
-        <!-- Javascript para Alerts -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
@@ -35,55 +21,88 @@
                 <br><br>
                 <div class="row" style="padding-right: 25px; margin-right: 25px">
                     <div class="col-md-12">
-                        <h3 class="text-center"><strong>Clasificaciones de las peliculas</strong></h3></br>
+                        <h3 class="text-center"><strong>Clasificaciones de las Películas</strong></h3></br>
                     </div>
                     <!--Tabla con información de las empresas registradas-->
                     <div class="col-md-8 ">
-                        <table class="table table-hover border border-dark" style="background-color: white">
+                        <table class="table table-hover border border-dark" id="classTable" style="background-color: white">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">Clasificación</th>
+                                    <th scope="col" class="text-center">Clasificación</th>
                                     <th scope="col">Descripción</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">Clasificación A</th>
-                                    <td>Descripción de la clasificación A</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Clasificación B</th>
-                                    <td>Descripción de la clasificación B</td>
-                                </tr>
+                                <logic:notEmpty name="ClasificacionesActionForm" property="listaClasificacion">
+                                    <logic:iterate id="ver" name="ClasificacionesActionForm" property="listaClasificacion">
+                                        <html:form action="/system/clasificaciones"> 
+                                            <tr  style="cursor: pointer;" id="registro" class="infoBtn" 
+                                                 data-info="${ver.idClasificacion};;${ver.tipoClasificacion};;${ver.detalleClasificacion}">
+                                                <th scope="row" class="text-center"><bean:write name="ver" property="tipoClasificacion"/></th>
+                                                <td><bean:write name="ver" property="detalleClasificacion" /></td>
+                                            </tr>
+                                        </html:form>                                    
+                                    </logic:iterate>
+                                </logic:notEmpty>
                             </tbody>
                         </table>
                     </div>
                     <!--Formulario para ingresar y consultar datos-->
                     <div class="col-md-4 border border-dark rounded" style="background-color: white">
-                        <form>
-                            </br>
+                        <html:form action="/system/clasificaciones" styleId="formClass">
+                            <br>
+                            <div class="form-group row" hidden="true">
+                                <label class="col-sm-3 col-form-label">ID:</label>
+                                <div class="col-sm-9">
+                                    <html:text styleId="idClasificacion" styleClass="form-control" property="idClasificacion" readonly="true"></html:text>
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Clasificación:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Ingrese nombre de la clasificación" maxlength="20">
+                                    <html:text styleId="tipoClasificacion" styleClass="form-control" property="tipoClasificacion" maxlength="20"></html:text>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Descripción:</label>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control" style="width: 100%; min-height:250px; max-height: 250px" maxlength="150"></textarea>
+                                    <html:textarea styleId="detalleClasificacion" styleClass="form-control" property="detalleClasificacion" style="width: 100%; min-height:250px; max-height: 250px; maxlength: 150"></html:textarea>
                                 </div>
                             </div>
                             <div class="text-center">
                                 </br>
                                 <!--botones para realizar acciones del formulario-->
-                                <button type="submit" class="btn btn-info">Nueva</button>
-                                <button type="submit" class="btn btn-secondary">Modificar</button>
-                                <button type="submit" class="btn btn-danger">Eliminar</button><br></br>
+                                <html:submit styleId="nueva" styleClass="btn btn-info" property="action" value="Nueva"></html:submit>
+                                <html:submit styleId="modificar" styleClass="btn btn-secondary" property="action" value="Modificar"></html:submit>
+                                <button type="submit" class="btn btn-danger" id="btnEliminar">Eliminar</button><br></br>
                             </div>
-                        </form>
+                        </html:form>  
                     </div>
-                </div>        
+                </div>
+                
+                <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+                    <form action="cliente" method="post">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Eliminar</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="hidden" class="form-control" id="keyDelete">
+                                    <p>¿Está seguro que desea eliminar este Registro?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <submit id="eliminar" class="btn btn-danger">Confirmar</submit>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -93,6 +112,16 @@
     <!-- Menu Toggle Script -->
     <script>
         $("#wrapper").toggleClass("toggled");
+        
+        $("#classTable").on("dblclick", ".infoBtn", function () {
+            var data = $(this).data("info").split(";;");
+            $("#idClasificacion").val(data[0]);
+            $("#tipoClasificacion").val(data[1]);
+            $("#detalleClasificacion").val(data[2]);
+
+            $("#tipoClasificacion").removeClass("is-invalid");
+            $("#detalleClasificacion").removeClass("is-invalid");
+        });
     </script>
 
 </body>

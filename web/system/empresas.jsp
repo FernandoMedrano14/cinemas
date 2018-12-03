@@ -8,6 +8,8 @@
 <html:html lang="true">
     <head>
         <%@include file="./ext/head.html" %>
+        <!-- Javascript para Controlador -->
+        <script type="text/javascript" src="systemJS/empresasJS.js"></script>
     </head>
     <body style="background-color: #E2fff0">
         <%@include file="./ext/menu.html" %>
